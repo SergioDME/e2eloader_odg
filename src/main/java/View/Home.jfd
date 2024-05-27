@@ -1,0 +1,135 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) {
+			"hgap": 5
+			"vgap": 5
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+				"hgap": 5
+				"vgap": 5
+			} ) {
+				name: "panel1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+					"hgap": 5
+					"vgap": 5
+				} ) {
+					name: "panel2"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "pathJLabel"
+						"text": "text"
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "West"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "pathJField"
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "pathJButton"
+						"text": "text"
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "East"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "First"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+					"hgap": 5
+					"vgap": 5
+				} ) {
+					name: "panel3"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						"maximumSize": new java.awt.Dimension( 150, 150 )
+						"minimumSize": new java.awt.Dimension( 150, 150 )
+						"preferredSize": new java.awt.Dimension( 150, 150 )
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "e2eTestCases"
+							"maximumSize": new java.awt.Dimension( 500, 500 )
+							"preferredSize": new java.awt.Dimension( 500, 500 )
+							"minimumSize": new java.awt.Dimension( 500, 500 )
+							"preferredScrollableViewportSize": new java.awt.Dimension( 200, 200 )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+						"hgap": 5
+						"vgap": 5
+					} ) {
+						name: "panel4"
+						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+							name: "scrollPane2"
+							"maximumSize": new java.awt.Dimension( 150, 150 )
+							"minimumSize": new java.awt.Dimension( 150, 150 )
+							"preferredSize": new java.awt.Dimension( 150, 150 )
+							add( new FormComponent( "javax.swing.JTable" ) {
+								name: "scriptChosenTable"
+								"preferredSize": new java.awt.Dimension( 150, 150 )
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "Center"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+							"hgap": 5
+							"vgap": 5
+						} ) {
+							name: "panel5"
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "scriptNameJText"
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "Center"
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+								"hgap": 5
+								"vgap": 5
+							} ) {
+								name: "panel6"
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "label1"
+									"text": ".jmx"
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "West"
+								} )
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "saveButton"
+									"text": "Save"
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "Center"
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "East"
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+								"hgap": 5
+								"vgap": 5
+							} ) {
+								name: "CHART"
+								"maximumSize": new java.awt.Dimension( 1000, 200 )
+								"minimumSize": new java.awt.Dimension( 1000, 200 )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "North"
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "South"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 505, 385 )
+		} )
+	}
+}

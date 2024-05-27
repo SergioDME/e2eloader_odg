@@ -1,0 +1,236 @@
+JFDML JFormDesigner: "7.0.5.4.420" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) {
+			"hgap": 5
+			"vgap": 5
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+				"hgap": 5
+				"vgap": 5
+			} ) {
+				name: "panel3"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+					"hgap": 5
+					"vgap": 5
+				} ) {
+					name: "panel6"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+						"hgap": 5
+						"vgap": 5
+					} ) {
+						name: "panel7"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "nameLabel"
+							"text": "Name"
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "West"
+						} )
+						add( new FormComponent( "javax.swing.JComboBox" ) {
+							name: "nameComboBox"
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "Center"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+							"hgap": 5
+							"vgap": 5
+						} ) {
+							name: "numReqPanel"
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "numReqLabel"
+								"text": "Request n°"
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "West"
+							} )
+							add( new FormComponent( "javax.swing.JComboBox" ) {
+								name: "numReqComboBox"
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "Center"
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "East"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+						name: "panel8"
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+							"hgap": 10
+							"vgap": 10
+						} ) {
+							name: "panel9"
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "fromLabel"
+								"text": "From"
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "West"
+							} )
+							add( new FormComponent( "javax.swing.JComboBox" ) {
+								name: "fromComboBox"
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "Center"
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+								"hgap": 5
+								"vgap": 5
+							} ) {
+								name: "panel16"
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "filterJLabel"
+									"text": "Filter value by name"
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "West"
+								} )
+								add( new FormComponent( "javax.swing.JTextField" ) {
+									name: "filterJtext"
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "Center"
+								} )
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "filterButton"
+									"text": "Filter"
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "East"
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "South"
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "North"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+							"hgap": 5
+							"vgap": 5
+						} ) {
+							name: "panel10"
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+								"hgap": 10
+								"vgap": 10
+							} ) {
+								name: "panel11"
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "optionLabel"
+									"text": "Enter value manually"
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "West"
+								} )
+								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+									"hgap": 2
+									"vgap": 2
+								} ) {
+									name: "panel12"
+									add( new FormComponent( "javax.swing.JCheckBox" ) {
+										name: "optionCheckBox"
+									}, new FormLayoutConstraints( class java.lang.String ) {
+										"value": "West"
+									} )
+									add( new FormComponent( "javax.swing.JTextField" ) {
+										name: "optionText"
+									}, new FormLayoutConstraints( class java.lang.String ) {
+										"value": "Center"
+									} )
+									add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+										"hgap": 5
+										"vgap": 5
+									} ) {
+										name: "panel15"
+										add( new FormComponent( "javax.swing.JButton" ) {
+											name: "importCSVButton"
+											"text": "import csv"
+										}, new FormLayoutConstraints( class java.lang.String ) {
+											"value": "Center"
+										} )
+									}, new FormLayoutConstraints( class java.lang.String ) {
+										"value": "East"
+									} )
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "Center"
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "North"
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+								"hgap": 5
+								"vgap": 5
+							} ) {
+								name: "panel13"
+								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+									"hgap": 5
+									"vgap": 5
+								} ) {
+									name: "panel14"
+									add( new FormComponent( "javax.swing.JLabel" ) {
+										name: "valueLabel"
+										"text": "Value"
+									}, new FormLayoutConstraints( class java.lang.String ) {
+										"value": "Center"
+									} )
+									add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+										"hgap": 8
+										"vgap": 8
+									} ) {
+										name: "panel2"
+										add( new FormComponent( "javax.swing.JLabel" ) {
+											name: "regExLabel"
+											"text": "text"
+										}, new FormLayoutConstraints( class java.lang.String ) {
+											"value": "West"
+										} )
+										add( new FormComponent( "javax.swing.JTextField" ) {
+											name: "regExField"
+										}, new FormLayoutConstraints( class java.lang.String ) {
+											"value": "Center"
+										} )
+									}, new FormLayoutConstraints( class java.lang.String ) {
+										"value": "South"
+									} )
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "North"
+								} )
+								add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+									"hgap": 2
+									"vgap": 2
+								} ) {
+									name: "panel1"
+									add( new FormComponent( "javax.swing.JButton" ) {
+										name: "save"
+										"text": "Save"
+									}, new FormLayoutConstraints( class java.lang.String ) {
+										"value": "Center"
+									} )
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "South"
+								} )
+								add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+									name: "scrollPaneValueTable"
+									add( new FormComponent( "javax.swing.JTable" ) {
+										name: "valueTable"
+									} )
+								}, new FormLayoutConstraints( class java.lang.String ) {
+									"value": "Center"
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "Center"
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "Center"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 650, 430 )
+		} )
+	}
+}
