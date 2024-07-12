@@ -105,9 +105,9 @@ public class DependencyGraph implements Serializable {
         return  dependencies;
     }
 
-    public Node getNodeByUrl(String url){
+    public Node getNodeByUrlandMethod(String url,String method){
         for(Node node : nodes){
-            if(node.request.getUrl().equals(url)){
+            if(node.request.getUrl().equals(url)&& node.request.getMethod().equals(method)){
                 return node;
             }
         }

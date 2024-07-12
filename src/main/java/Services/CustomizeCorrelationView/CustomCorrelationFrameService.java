@@ -67,19 +67,35 @@ public class CustomCorrelationFrameService {
         return list_url;
     }
 
+    public static List<String> getUrlswithMethods (DependencyGraph dependencyGraph, Integer index_req){
+        ArrayList<String> list_url = new ArrayList<>();
+        for(int i=0;i<index_req;i++){
+            String method  = dependencyGraph.nodes.get(i).request.getMethod();
+            String url = dependencyGraph.nodes.get(i).request.getUrl();
+            list_url.add(
+                    "["+method+"]"+url
+            );
+        }
+        return list_url;
+    }
+
     public static ActionListener actionFromComboBox(AddManuallyCorrelationFrame customCorrelationFrame,CorrelatorHelperService correlatorHelperService) {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                String url = (String) customCorrelationFrame.getFromComboBox().getSelectedItem();
+                String urlandmethod = (String) customCorrelationFrame.getFromComboBox().getSelectedItem();
+                int start_pos = urlandmethod.indexOf("[");
+                int end_pos = urlandmethod.indexOf("]");
+                String method = urlandmethod.substring(start_pos+1,end_pos);
+                String url = urlandmethod.substring(end_pos+1,urlandmethod.length());
                 if(url.contains("_webSocketMessages")) {
                     customCorrelationFrame.getPanel2().setVisible(true);
                 } else {
                     customCorrelationFrame.getPanel2().setVisible(false);
                 }
 
-                String inputNumbers = correlatorHelperService.getDependencyGraph().getNodeByUrl(url).indexs.toString();
+                String inputNumbers = correlatorHelperService.getDependencyGraph().getNodeByUrlandMethod(url,method).indexs.toString();
                 String numbersString= inputNumbers.substring(1,inputNumbers.length()-1);
                 String [] numberArrays = numbersString.split(",");
 
@@ -219,7 +235,7 @@ public class CustomCorrelationFrameService {
         return  null;
     }
 
-    private static void addNewManuallyUrlDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param,Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame,String fromComboBox){
+    private static void addNewManuallyUrlDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param,Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, Node from ){
         if(is_manually){
             if(items.isEmpty()){ // manually inserted without importing csv file
                 customizeCorrelationPage.getCheckItemListsRequest().get(current_request).get(type).add(
@@ -259,7 +275,7 @@ public class CustomCorrelationFrameService {
             customizeCorrelationPage.getCheckItemListsRequest().get(customizeCorrelationPage.getCurrent_request()).get(type).add(
                     new CheckableItem(
                             new EdgeUrl(
-                                    addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(fromComboBox),
+                                    from,
                                     to,
                                     name,
                                     (AtomicObject) checked_param.getResponse()
@@ -270,7 +286,7 @@ public class CustomCorrelationFrameService {
         }
     }
 
-    private static void addNewManuallyHeaderlDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param,Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame,String fromComboBox){
+    private static void addNewManuallyHeaderlDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param,Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, Node from){
         if(is_manually){
             if(items.isEmpty()){ // manually inserted without importing csv file
                 customizeCorrelationPage.getCheckItemListsRequest().get(current_request).get(type).add(
@@ -310,7 +326,7 @@ public class CustomCorrelationFrameService {
             customizeCorrelationPage.getCheckItemListsRequest().get(customizeCorrelationPage.getCurrent_request()).get(type).add(
                     new CheckableItem(
                             new EdgeHeader(
-                                    addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(fromComboBox),
+                                    from,
                                     to,
                                     name,
                                     (AtomicObject) checked_param.getResponse()
@@ -331,41 +347,51 @@ public class CustomCorrelationFrameService {
 
                 String name = (String) addManuallyCorrelationFrame.getNameComboBox().getSelectedItem();
                 String fromComboBox = (String) addManuallyCorrelationFrame.getFromComboBox().getSelectedItem();
+                int start_pos = fromComboBox.indexOf("[");
+                int end_pos = fromComboBox.indexOf("]");
+                String from_method = fromComboBox.substring(start_pos+1,end_pos);
+                String from_url = fromComboBox.substring(end_pos+1,fromComboBox.length());
+                Node from = addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrlandMethod(from_url,from_method);
                 boolean is_manually = addManuallyCorrelationFrame.getOptionCheckBox().isSelected();
                 List<CustomCorrelationTableModel.ResponseParamCheckable> items  = addManuallyCorrelationFrame.getCustomCorrelationTableModel().getItems();
                 int current_request = customizeCorrelationPage.getCurrent_request();
                 CustomCorrelationTableModel.ResponseParamCheckable checked_param = getCheckedItem(addManuallyCorrelationFrame);
-                Node to = addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(
-                        addManuallyCorrelationFrame.getCorrelatorHelperService().dependencyGraph.nodes.get(current_request).getRequest().getUrl()
-                );
+                String url = addManuallyCorrelationFrame.getCorrelatorHelperService().dependencyGraph.nodes.get(current_request).getRequest().getUrl();
+                String method =addManuallyCorrelationFrame.getCorrelatorHelperService().dependencyGraph.nodes.get(current_request).getRequest().getMethod();
+                Node to = addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrlandMethod(url,method);
                 switch (type){
                     case "url": {
-                        addNewManuallyUrlDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,fromComboBox);
+                        addNewManuallyUrlDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,from);
                         customizeCorrelationPage.getReplacementTableModelUrl().fireTableDataChanged();
                         break;
                     }
                     case "query":{
-                        addNewManuallyQueryDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,fromComboBox);
+                        addNewManuallyQueryDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,from);
                         customizeCorrelationPage.getReplacementTableModelQuery().fireTableDataChanged();
                         break;
                     }
                     case "cookie":{
-                        addNewManuallyCookieDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,fromComboBox);
+                        addNewManuallyCookieDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,from);
                         customizeCorrelationPage.getReplacementTableModelCookie().fireTableDataChanged();
                         break;
                     }
                     case "headers":{
-                        addNewManuallyHeaderlDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,fromComboBox);
+                        addNewManuallyHeaderlDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,from);
                         customizeCorrelationPage.getReplacementTableModelHeaders().fireTableDataChanged();
                         break;
                     }
                     case "postData":{
-                        addNewManuallyPostlDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,fromComboBox);
+                        addNewManuallyPostlDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,from);
                         customizeCorrelationPage.getReplacementTablePostData().fireTableDataChanged();
                         break;
                     }
                 }
 
+                int ok_pressed = JOptionPane.showConfirmDialog(null, "Operation successfully completed! \n Do you want to add other correlations?", "Correlation added", JOptionPane.INFORMATION_MESSAGE);
+
+                if(!(ok_pressed == JOptionPane.OK_OPTION)){
+                    addManuallyCorrelationFrame.dispose();
+                }
                 /*else if(type.equals("request")){
 
                         String num_req = (String) customCorrelationFrame.getNumReqComboBox().getSelectedItem();
@@ -407,7 +433,7 @@ public class CustomCorrelationFrameService {
         };
     }
 
-    private static void addNewManuallyPostlDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, String fromComboBox) {
+    private static void addNewManuallyPostlDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, Node from) {
         if ("application/x-www-form-urlencoded".equals(to.getRequest().getPostData().getMimeType())) {
             if(is_manually){
                 if(items.isEmpty()){ // manually inserted without importing csv file
@@ -448,7 +474,7 @@ public class CustomCorrelationFrameService {
                 customizeCorrelationPage.getCheckItemListsRequest().get(customizeCorrelationPage.getCurrent_request()).get(type).add(
                         new CheckableItem(
                                 new EdgeBodyUE(
-                                        addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(fromComboBox),
+                                        from,
                                         to,
                                         name,
                                         (AtomicObject) checked_param.getResponse()
@@ -458,11 +484,11 @@ public class CustomCorrelationFrameService {
                 );
             }
         } else if ("application/json".equals(to.getRequest().getPostData().getMimeType())) {
-            addNewManuallyPostJSONDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,fromComboBox);
+            addNewManuallyPostJSONDependency(is_manually,items,customizeCorrelationPage,current_request,type,checked_param,to,name,addManuallyCorrelationFrame,from);
         }
     }
 
-    private static void addNewManuallyPostJSONDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, String fromComboBox) {
+    private static void addNewManuallyPostJSONDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, Node from) {
         if(is_manually){
             if(items.isEmpty()){ // manually inserted without importing csv file
                 customizeCorrelationPage.getCheckItemListsRequest().get(current_request).get(type).add(
@@ -517,7 +543,7 @@ public class CustomCorrelationFrameService {
                             new EdgeBodyJSON(
                                     is_primitve,
                                     name,
-                                    addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(fromComboBox),
+                                    from,
                                     to,
                                     atomicObject,
                                     structuredObject
@@ -528,7 +554,7 @@ public class CustomCorrelationFrameService {
         }
     }
 
-    private static void addNewManuallyCookieDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, String fromComboBox) {
+    private static void addNewManuallyCookieDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, Node from) {
         if(is_manually){
             if(items.isEmpty()){ // manually inserted without importing csv file
                 customizeCorrelationPage.getCheckItemListsRequest().get(current_request).get(type).add(
@@ -568,7 +594,7 @@ public class CustomCorrelationFrameService {
             customizeCorrelationPage.getCheckItemListsRequest().get(customizeCorrelationPage.getCurrent_request()).get(type).add(
                     new CheckableItem(
                             new EdgeCookie(
-                                    addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(fromComboBox),
+                                    from,
                                     to,
                                     name,
                                     (AtomicObject) checked_param.getResponse()
@@ -579,7 +605,7 @@ public class CustomCorrelationFrameService {
         }
     }
 
-    private static void addNewManuallyQueryDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, String fromComboBox) {
+    private static void addNewManuallyQueryDependency(boolean is_manually, List<CustomCorrelationTableModel.ResponseParamCheckable> items, CustomizeCorrelationPage customizeCorrelationPage, int current_request, String type, CustomCorrelationTableModel.ResponseParamCheckable checked_param, Node to, String name, AddManuallyCorrelationFrame addManuallyCorrelationFrame, Node from) {
         if(is_manually){
             if(items.isEmpty()){ // manually inserted without importing csv file
                 customizeCorrelationPage.getCheckItemListsRequest().get(current_request).get(type).add(
@@ -619,7 +645,7 @@ public class CustomCorrelationFrameService {
             customizeCorrelationPage.getCheckItemListsRequest().get(customizeCorrelationPage.getCurrent_request()).get(type).add(
                     new CheckableItem(
                             new EdgeQueryParam(
-                                    addManuallyCorrelationFrame.getCorrelatorHelperService().getDependencyGraph().getNodeByUrl(fromComboBox),
+                                    from,
                                     to,
                                     name,
                                     (AtomicObject) checked_param.getResponse()

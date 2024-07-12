@@ -32,6 +32,17 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
 
         Object response;
         boolean is_selected;
+
+        public boolean getFromCookie() {
+            return from_cookie;
+        }
+
+        public void setFrom(Boolean fromcookie) {
+            this.from_cookie = from_cookie;
+        }
+
+        boolean from_cookie;
+
         boolean imported_from_csv=false;
 
         public boolean isImported_from_csv() {
@@ -52,9 +63,10 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
 
         CSVNode csvNode;
 
-        public  ResponseParamCheckable(Object response){
+        public  ResponseParamCheckable(Object response,boolean is_fromcookie){
             this.response=response;
             this.is_selected= false;
+            this.from_cookie=is_fromcookie;
         }
 
         public ResponseParamCheckable(CSVNode csvNode){
@@ -73,21 +85,22 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
         this.items.clear();
     }
     public void setItemFromResponseUnstructured(Object object) {
+
         if(object.getClass() == ResponseUnstructured.class){
            ResponseUnstructured responseUnstructured = (ResponseUnstructured) object;
             for(Object resp_obj : responseUnstructured.getObjects()){
                 if(resp_obj.getClass() == AtomicObject.class){
-                    items.add(new ResponseParamCheckable((AtomicObject)resp_obj));
+                    items.add(new ResponseParamCheckable(resp_obj,((AtomicObject)resp_obj).from_set_cookie));
                 }else if(resp_obj.getClass() == StructuredObject.class){
                     setItemFromResponseUnstructured(resp_obj);
                 }
             }
         }else if(object.getClass() == StructuredObject.class){
             StructuredObject structuredObject = (StructuredObject) object;
-            items.add(new ResponseParamCheckable(object));
+            items.add(new ResponseParamCheckable(object,false));
             for(Object resp_obj : structuredObject.getObjects()){
                 if(resp_obj.getClass() == AtomicObject.class){
-                    items.add(new ResponseParamCheckable((AtomicObject)resp_obj));
+                    items.add(new ResponseParamCheckable(resp_obj,((AtomicObject)resp_obj).from_set_cookie));
                 }else if(resp_obj.getClass() == StructuredObject.class){
                     setItemFromResponseUnstructured(resp_obj);
                 }
@@ -106,7 +119,7 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -119,7 +132,10 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
                 return "Value";
             }
 
-            case 2: {
+            case 2:{
+                return "From SetCookie";
+            }
+            case 3: {
                 return "";
             }
         }
@@ -128,7 +144,7 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
 
     @Override
     public Class<?> getColumnClass(int i) {
-        if (i == 2) {
+        if (i == 3 || i == 2) {
                 return Boolean.class;
         }
         return String.class;
@@ -136,7 +152,7 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int i, int i1) {
-        if(i1==2) return true;
+        if(i1==3) return true;
         return false;
     }
 
@@ -163,7 +179,16 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
                     return structuredObject.value;
                 }
             }
-            case 2 : {return item.is_selected;}
+            case 2:{
+                if(item.response.getClass() == AtomicObject.class){
+                    AtomicObject atomicObject = (AtomicObject) item.response;
+                    return atomicObject.getFromSetCookie();
+                }else if(item.response.getClass() == StructuredObject.class){
+                    StructuredObject structuredObject = (StructuredObject) item.response;
+                    return false;
+                }
+            }
+            case 3 : {return item.is_selected;}
         }
         return null;
     }
@@ -190,7 +215,15 @@ public class CustomCorrelationTableModel extends AbstractTableModel {
                     structuredObject.setValue((String) value);
                 }
             }
-            case 2 : {item.setIs_selected((boolean) value);}
+            case 2 : {
+                if(item.response.getClass() == AtomicObject.class){
+                    AtomicObject atomicObject = (AtomicObject) item.response;
+                    atomicObject.setFrom_set_cookie((Boolean)value);
+                }else if(item.response.getClass() == StructuredObject.class){
+                    // nothing
+                }
+            }
+            case 3 : {item.setIs_selected((boolean) value);}
         }
         this.fireTableCellUpdated(r,c);
     }

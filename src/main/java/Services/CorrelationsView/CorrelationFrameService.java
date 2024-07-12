@@ -88,7 +88,7 @@ public class CorrelationFrameService {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                if (file_json_odg.exists()) {
+               if (file_json_odg.exists()) {
                     System.out.println("File exists in the folder.");
                     try {
                         dependencyGraph = DependencyGraph.parseGraphByFile(file_json_odg);
@@ -96,7 +96,7 @@ public class CorrelationFrameService {
                         throw new RuntimeException(e);
                     }
                 } else {
-                    System.out.println("File does not exist in the folder.");
+                System.out.println("File does not exist in the folder.");
                     try {
                         dependencyGraph = extractDependencies.build_dependencies_graph();
                         dependencyGraph.saveDependencyGraph(dependencyGraph, har_file);
@@ -107,7 +107,6 @@ public class CorrelationFrameService {
                 CorrelatorHelperService correlatorHelperService = new CorrelatorHelperService(extractDependencies.getResponseUnstructuredList(),dependencyGraph,har,correlationFrame.getE2eName(),correlationFrame);
                 correlatorHelperService.runCustomizeCorrelationFrame();
             }
-
         };
     }
 

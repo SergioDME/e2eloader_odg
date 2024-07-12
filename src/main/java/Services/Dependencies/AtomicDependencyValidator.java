@@ -116,7 +116,6 @@ public class AtomicDependencyValidator {
                 }
             }
         }
-
         return  false;
     }
 

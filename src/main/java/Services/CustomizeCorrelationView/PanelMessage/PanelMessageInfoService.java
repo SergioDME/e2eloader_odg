@@ -5,6 +5,7 @@ import View.CustomizeCorrelationPage.CustomizeCorrelationPage;
 import View.CustomizeCorrelationPage.PanelMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,7 +68,6 @@ public class PanelMessageInfoService {
 
 
     public static void  fill_response_area(JTable table, CustomizeCorrelationPage frame, int row, PanelMessage pm,String type){
-
         String indented_response ="";
         try {
             if(!table.getValueAt(row,3).equals("Value inserted manually")) {
@@ -81,18 +81,26 @@ public class PanelMessageInfoService {
                 else{
                     index = Integer.parseInt(numbers);
                 }
-
+                CheckableItem checkableItem = frame.getCheckItemListsRequest().get(frame.getCurrent_request()).get(type).get(row);
                 if(!type.equals("cookie")) {
 
-                    Object json = new ObjectMapper().readValue(
-                            frame.getCorrelatorHelperApp().getHar().getLog().getEntries()[index].getResponse().getContent().getText()
-                            , Object.class);
-                    indented_response = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(json);
-                    pm.getLabelResponse().setText("RESPONSE DATA OF REQUEST N° "+table.getValueAt(row,2));
+                    String str_response = frame.getCorrelatorHelperApp().getHar().getLog().getEntries()[index].getResponse().getContent().getText();
+                    if(!str_response.isEmpty())
+                    {
+                        Object json = new ObjectMapper().readValue(
+                                str_response
+                                , Object.class);
+                        indented_response = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(json);
+                        pm.getLabelResponse().setText("RESPONSE DATA OF REQUEST N° "+table.getValueAt(row,2));
+                    }else{ //the checkableItem came from a setcookie
+                        for(int i=0;i < frame.getCorrelatorHelperApp().getHar().getLog().getEntries()[index].getResponse().getCookies().length;i++){
+                            Cookie cookie = frame.getCorrelatorHelperApp().getHar().getLog().getEntries()[index].getResponse().getCookies()[i];
+                            indented_response+=cookie.toString()+"\n";
+                        }
+                        pm.getLabelResponse().setText("SETCOOKIE IN THE RESPONSE OF REQUEST N° "+table.getValueAt(row,2));
+                    }
 
                 }else{
-
-                    CheckableItem checkableItem = frame.getCheckItemListsRequest().get(frame.getCurrent_request()).get(type).get(row);
                     EdgeCookie edgeCookie =(EdgeCookie)  checkableItem.getEdge();
                     if(edgeCookie.getDependency().from_set_cookie){
                         for(int i=0;i < frame.getCorrelatorHelperApp().getHar().getLog().getEntries()[index].getResponse().getCookies().length;i++){
