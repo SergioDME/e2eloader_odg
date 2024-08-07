@@ -2,7 +2,7 @@ package Services.Dependencies;
 
 import Entity.DependencyGraph;
 import Entity.Har;
-import Entity.Node;
+import Entity.MyNode;
 import Services.ResponseAnalyzer.ResponseAnalyzer;
 import Services.ResponseAnalyzer.ResponseUnstructured;
 import com.google.gson.Gson;
@@ -61,11 +61,10 @@ public class ExtractDependencies {
     }
 
     public DependencyGraph build_dependencies_graph() throws IOException {
-
         DependencyGraph dependencyGraph = new DependencyGraph();
         dependencyGraph.addRequestoToGraph(this.har.getLog().getEntries()[0].getRequest(),0);
         for(int i=1; i<this.har.getLog().getEntries().length;i++){
-            Node to = dependencyGraph.addRequestoToGraph(this.har.getLog().getEntries()[i].getRequest(),i);
+            MyNode to = dependencyGraph.addRequestoToGraph(this.har.getLog().getEntries()[i].getRequest(),i);
             if(to != null){ // if to is not equals null, it's the first time we meet this request so we've to analyze it
                 UrlDependency.check_url_dependencies(this.responseUnstructuredList,i,dependencyGraph,to);
                 HeaderDependency.check_header_dependency(this.responseUnstructuredList,i,dependencyGraph,to);

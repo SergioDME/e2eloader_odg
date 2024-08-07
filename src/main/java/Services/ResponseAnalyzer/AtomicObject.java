@@ -65,4 +65,25 @@ public class AtomicObject implements Serializable {
         else
             return "[SET COOKIE] name:"+name+" value:"+value;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(this==o){
+            return true;
+        }
+
+        if(o == null || getClass() != o.getClass()){
+            return false;
+        }
+
+        AtomicObject atomicObject = (AtomicObject) o;
+
+        if(this.xpath == null || ((AtomicObject) o).xpath == null){
+            return this.name.equals(atomicObject.name) && this.value.equals(atomicObject.value);
+        }
+
+        return this.name.equals(atomicObject.name) && this.value.equals(atomicObject.value) && this.xpath.equals(atomicObject.xpath);
+
+
+    }
 }

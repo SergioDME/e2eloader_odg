@@ -22,13 +22,13 @@ public class EdgeQueryParam extends  Edge{
 
     @SerializedName("query_param_name")
     public String query_param_name;
-    @SerializedName("dependency")
+    /*@SerializedName("dependency")
     public AtomicObject dependency;
-
-    public EdgeQueryParam(Node from,Node to, String query_param_name, AtomicObject atomicObject){
-        super(from,to,"queryparam");
+    */
+    public EdgeQueryParam(MyNode from, MyNode to, String query_param_name, AtomicObject atomicObject){
+        super(from,to,"queryparam",atomicObject);
         this.query_param_name=query_param_name;
-        this.dependency=atomicObject;
+        //this.dependency=atomicObject;
     }
 
     @Override

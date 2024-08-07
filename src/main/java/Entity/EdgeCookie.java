@@ -22,13 +22,13 @@ public class EdgeCookie extends  Edge{
 
     @SerializedName("name")
     public String name;
-    @SerializedName("dependency")
+    /*@SerializedName("dependency")
     public AtomicObject dependency;
-
-    public EdgeCookie(Node from, Node to, String cookie_name, AtomicObject atomicObject){
-        super(from,to,"cookie");
+    */
+    public EdgeCookie(MyNode from, MyNode to, String cookie_name, AtomicObject atomicObject){
+        super(from,to,"cookie",atomicObject);
         this.name=cookie_name;
-        this.dependency=atomicObject;
+        //this.dependency=atomicObject;
     }
 
     @Override

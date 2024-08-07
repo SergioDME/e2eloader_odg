@@ -1,15 +1,15 @@
 package Services.Dependencies;
 
 import Entity.CSVNode;
-import Entity.Node;
+import Entity.MyNode;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
-public class TypeFromNodeAdaptor implements JsonDeserializer<Node> {
+public class TypeFromNodeAdaptor implements JsonDeserializer<MyNode> {
 
     @Override
-    public Node deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+    public MyNode deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         if(jsonObject.has("ignorefirstLine")){
             return  jsonDeserializationContext.deserialize(jsonElement, CSVNode.class);
@@ -18,8 +18,8 @@ public class TypeFromNodeAdaptor implements JsonDeserializer<Node> {
         }
     }
 
-    private Node deserializeNode(JsonObject jsonObject) {
+    private MyNode deserializeNode(JsonObject jsonObject) {
         Gson gson = new Gson();
-        return gson.fromJson(jsonObject, Node.class);
+        return gson.fromJson(jsonObject, MyNode.class);
     }
 }

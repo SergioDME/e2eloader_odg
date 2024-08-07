@@ -22,13 +22,11 @@ public class EdgeUrl  extends Edge{
 
     @SerializedName("subPath")
     public String subPath;
-    @SerializedName("dependency")
-    public AtomicObject dependency;
 
-    public EdgeUrl(Node from, Node to,String subPath, AtomicObject atomicObject) {
-        super(from,to,"url");
+    public EdgeUrl(MyNode from, MyNode to, String subPath, AtomicObject atomicObject) {
+        super(from,to,"url",atomicObject);
         this.subPath=subPath;
-        this.dependency=atomicObject;
+        //this.dependency=atomicObject;
     }
 
     @Override

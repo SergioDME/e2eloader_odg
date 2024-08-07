@@ -17,14 +17,13 @@ public class StructuredObject implements Serializable {
         this.name = name;
         this.value = value;
         this.objects = new ArrayList<>();
-
-        if (value.startsWith("{")) {
+       // if (value.startsWith("{")) {
             try {
               this.schemaString=generateJSONSchema(value);
             }catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }
+        //}
     }
 
     public String getName() {

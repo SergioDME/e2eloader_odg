@@ -6,6 +6,7 @@ import View.AddManuallyCorrelationPage.AddManuallyCorrelationFrame;
 import View.AddManuallyCorrelationPage.CustomCorrelationTableModel;
 import View.CSV.CSVFrame;
 import View.CustomizeCorrelationPage.CustomizeCorrelationPage;
+import org.jfree.data.io.CSV;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -113,7 +114,7 @@ public class CSVFrameService {
                 addManuallyCorrelationFrame.getCustomCorrelationTableModel().cleanItems();
                 addManuallyCorrelationFrame.getCustomCorrelationTableModel().getItems().add(new CustomCorrelationTableModel.ResponseParamCheckable(csvNode));
                 //add to correlationHelper
-
+                csvFrame.dispose();
             }
         };
     }

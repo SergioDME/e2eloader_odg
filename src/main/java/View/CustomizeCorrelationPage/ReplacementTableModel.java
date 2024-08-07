@@ -101,8 +101,8 @@ public class ReplacementTableModel extends AbstractTableModel {
     private static String getIndexByNode(Object from){
         if(from == null){
             return "-";
-        }else if(from.getClass() == Node.class){
-            return ((Node)from).indexs.toString();
+        }else if(from.getClass() == MyNode.class){
+            return ((MyNode)from).indexs.toString();
         }
         return "-";
     }
@@ -110,8 +110,8 @@ public class ReplacementTableModel extends AbstractTableModel {
     private static String getFromByNode(Object from, AtomicObject dependency){
         if(from == null){
                 return dependency.name;
-        } else if(from.getClass() == Node.class){
-            return ((Node)from).request.getUrl();
+        } else if(from.getClass() == MyNode.class){
+            return ((MyNode)from).request.getUrl();
         } else if(from.getClass() == CSVNode.class){
             return ((CSVNode)from).getFilename();
         }
@@ -122,7 +122,7 @@ public class ReplacementTableModel extends AbstractTableModel {
         if(from == null) {
             return dependency.value;
 
-        }else if(from.getClass() == Node.class){
+        }else if(from.getClass() == MyNode.class){
             if(is_primitive)
                 return dependency.name;
             else
@@ -213,15 +213,15 @@ public class ReplacementTableModel extends AbstractTableModel {
     }
 
     private  static void setFromByNode(Object from, Object value){
-        if(from.getClass() == Node.class)
-            ((Node)from).request.setUrl((String)value);
+        if(from.getClass() == MyNode.class)
+            ((MyNode)from).request.setUrl((String)value);
         else if(from.getClass() == CSVNode.class){
             ((CSVNode)from).setFilename((String) value);
         }
     }
 
     private static void setValueByNode(Object from, AtomicObject atomicObject, StructuredObject structuredObject, boolean is_primitive,Object value){
-        if(from.getClass() == Node.class)
+        if(from.getClass() == MyNode.class)
             if(is_primitive)
                 atomicObject.setName((String)value);
             else
@@ -240,9 +240,9 @@ public class ReplacementTableModel extends AbstractTableModel {
             switch (c) {
                 case 1 : {edgeUrl.setSubPath((String)value); break; }
                 case 2 : {
-                    if(edgeUrl.from.getClass() == Node.class){
+                    if(edgeUrl.from.getClass() == MyNode.class){
                         ArrayList<Integer> arrayList = (ArrayList<Integer>) getIndex(value);
-                        ((Node)edgeUrl.from).setIndexs(arrayList);
+                        ((MyNode)edgeUrl.from).setIndexs(arrayList);
                     }
                     break;
                 }
@@ -278,9 +278,9 @@ public class ReplacementTableModel extends AbstractTableModel {
                 switch (c) {
                     case 1 : {edgeHeader.setHeader_name(((String)value)); break;}
                     case 2 : {
-                        if(edgeHeader.from.getClass() == Node.class){
+                        if(edgeHeader.from.getClass() == MyNode.class){
                             ArrayList<Integer> arrayList = (ArrayList<Integer>) getIndex(value);
-                            ((Node)edgeHeader.from).setIndexs(arrayList);
+                            ((MyNode)edgeHeader.from).setIndexs(arrayList);
                         }
                         break;
                     }
@@ -296,9 +296,9 @@ public class ReplacementTableModel extends AbstractTableModel {
                 switch (c) {
                     case 1 : {edgeQueryParam.setQuery_param_name((String)value); break;}
                     case 2 : {
-                        if(edgeQueryParam.from.getClass() == Node.class){
+                        if(edgeQueryParam.from.getClass() == MyNode.class){
                             ArrayList<Integer> arrayList = (ArrayList<Integer>) getIndex(value);
-                            ((Node)edgeQueryParam.from).setIndexs(arrayList);
+                            ((MyNode)edgeQueryParam.from).setIndexs(arrayList);
                         }
                         break;
                     }
@@ -314,9 +314,9 @@ public class ReplacementTableModel extends AbstractTableModel {
                 switch (c) {
                     case 1 : {edgeCookie.setName((String)value); break;}
                     case 2 : {
-                        if(edgeCookie.from.getClass() == Node.class){
+                        if(edgeCookie.from.getClass() == MyNode.class){
                             ArrayList<Integer> arrayList = (ArrayList<Integer>) getIndex(value);
-                            ((Node)edgeCookie.from).setIndexs(arrayList);
+                            ((MyNode)edgeCookie.from).setIndexs(arrayList);
                         }
                         break;
                     }
@@ -332,9 +332,9 @@ public class ReplacementTableModel extends AbstractTableModel {
                 switch (c) {
                     case 1 : {edgeBodyJSON.setName((String)value); break;}
                     case 2 : {
-                        if(edgeBodyJSON.from.getClass() == Node.class){
+                        if(edgeBodyJSON.from.getClass() == MyNode.class){
                             ArrayList<Integer> arrayList = (ArrayList<Integer>) getIndex(value);
-                            ((Node)edgeBodyJSON.from).setIndexs(arrayList);
+                            ((MyNode)edgeBodyJSON.from).setIndexs(arrayList);
                         }
                         break;}
                     case 3 : {setFromByNode(edgeBodyJSON.from,value); break;}
@@ -353,9 +353,9 @@ public class ReplacementTableModel extends AbstractTableModel {
 
                     case 1 : {edgeBodyUE.setName((String)value); break;}
                     case 2 : {
-                        if(edgeBodyUE.from.getClass() == Node.class){
+                        if(edgeBodyUE.from.getClass() == MyNode.class){
                             ArrayList<Integer> arrayList = (ArrayList<Integer>) getIndex(value);
-                            ((Node)edgeBodyUE.from).setIndexs(arrayList);
+                            ((MyNode)edgeBodyUE.from).setIndexs(arrayList);
                         }
                         break;}
                     case 3 : {setFromByNode(edgeBodyUE.from,value); break;}

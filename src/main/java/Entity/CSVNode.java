@@ -2,7 +2,7 @@ package Entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class CSVNode extends Node {
+public class CSVNode extends MyNode {
 
     public boolean isIgnorefirstLine() {
         return ignorefirstLine;
@@ -56,5 +56,20 @@ public class CSVNode extends Node {
     @Override
     public String toString() {
         return this.filename+" "+this.encoding+" "+variablesName+" "+ignorefirstLine;
+    }
+
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+        if(o == null || o.getClass()!=CSVNode.class){
+            return false;
+        }
+
+        CSVNode csvNode= (CSVNode) o;
+        return this.variablesName.equals(((CSVNode) o).variablesName) && this.filename.equals(((CSVNode) o).filename);
+
     }
 }

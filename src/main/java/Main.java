@@ -23,12 +23,13 @@ public class Main {
                 break;
             }
         }*/
+
         try{
             IntelliJTheme.setup( Main.class.getResourceAsStream("/arc-theme-orange.theme.json"));
+            //IntelliJTheme.setup( Main.class.getResourceAsStream("/data/themes/arc-theme-orange.theme.json"));
         }catch (Exception e){
             e.printStackTrace();
         }
-
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

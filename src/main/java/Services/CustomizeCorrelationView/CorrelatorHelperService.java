@@ -47,6 +47,7 @@ public class CorrelatorHelperService {
         this.responseUnstructuredList=list;
     }
 
+
     public  void runCustomizeCorrelationFrame() {
         List<Map<String, List<CheckableItem>>> requestsTableModelCheckItem = createRequestsTableModelCheckItem();
         SwingUtilities.invokeLater(new Runnable() {
@@ -83,7 +84,7 @@ public class CorrelatorHelperService {
                 customizeCorrelationPage.getSx().setEnabled(false);
                 customizeCorrelationPage.setActionSx(ButtonsAction.actionSxButton(customizeCorrelationPage));
                 customizeCorrelationPage.setActionDx(ButtonsAction.actionDxButton(customizeCorrelationPage));
-                customizeCorrelationPage.setActionSave(ButtonsAction.actionSaveButton(CorrelatorHelperService.this));
+                customizeCorrelationPage.setActionSave(ButtonsAction.actionSaveButton(CorrelatorHelperService.this, customizeCorrelationPage));
                 customizeCorrelationPage.addWindowListener(new WindowAdapter() {
                     @Override
                     public void windowClosing(WindowEvent e) {
@@ -110,7 +111,7 @@ public class CorrelatorHelperService {
 
     private List<Map<String, List<CheckableItem>>> createRequestsTableModelCheckItem() {
         List<Map<String, List<CheckableItem>>> result = new ArrayList<>();
-        for (Node node : this.dependencyGraph.nodes) {
+        for (MyNode node : this.dependencyGraph.nodes) {
             HashMap<String, List<CheckableItem>> map = new HashMap<>();
             List<CheckableItem> list_headers = new ArrayList<>();
             List<CheckableItem> list_queryparams = new ArrayList<>();

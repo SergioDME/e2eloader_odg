@@ -22,13 +22,11 @@ public class EdgeBodyUE extends Edge{
 
     @SerializedName("name")
     public String name;
-    @SerializedName("dependency")
-    public AtomicObject dependency;
 
-    public EdgeBodyUE(Node from ,Node to, String url_enc, AtomicObject atomicObject){
-        super(from,to,"bodyue");
+    public EdgeBodyUE(MyNode from , MyNode to, String url_enc, AtomicObject atomicObject){
+        super(from,to,"bodyue",atomicObject);
         this.name=url_enc;
-        this.dependency=atomicObject;
+        //this.dependency=atomicObject;
     }
 
     @Override

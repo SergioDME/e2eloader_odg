@@ -9,16 +9,16 @@ import java.util.List;
 
 public class QueryParameterDependency {
 
-    public static void check_queryParams_dependency(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, Node to) {
+    public static void check_queryParams_dependency(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, MyNode to) {
         for( QueryParam queryParam: to.getRequest().getQueryParams()){
             for (int response_index = 0; response_index < req_index; response_index++) {
-                Node from = dependencyGraph.getNodeByIndex(response_index);
+                MyNode from = dependencyGraph.getNodeByIndex(response_index);
                 check_queryParam(queryParam, responseUnstructuredList.get(response_index),from,to,dependencyGraph);
             }
         }
     }
 
-    private static void check_queryParam(QueryParam queryParam, Object response,Node from, Node to, DependencyGraph dependencyGraph) {
+    private static void check_queryParam(QueryParam queryParam, Object response, MyNode from, MyNode to, DependencyGraph dependencyGraph) {
         if(response.getClass() == ResponseUnstructured.class){
             ResponseUnstructured responseUnstructured = (ResponseUnstructured)response;
             for(Object o : responseUnstructured.getObjects()){
@@ -32,7 +32,7 @@ public class QueryParameterDependency {
         }
     }
 
-    private static void check_queryparam_atomic_evaluation(Object o, QueryParam queryParam,StructuredObject father,Node from, Node to, DependencyGraph dependencyGraph) {
+    private static void check_queryparam_atomic_evaluation(Object o, QueryParam queryParam, StructuredObject father, MyNode from, MyNode to, DependencyGraph dependencyGraph) {
         if(o.getClass() == AtomicObject.class){
             AtomicObject atomicObject = (AtomicObject) o;
             AtomicDependencyValidator atomicDependencyValidator = new AtomicDependencyValidator();

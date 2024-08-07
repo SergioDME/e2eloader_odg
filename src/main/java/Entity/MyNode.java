@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node implements Serializable {
+public class MyNode implements Serializable {
 
 
     public Request getRequest() {
@@ -30,7 +30,7 @@ public class Node implements Serializable {
     @SerializedName("indexs")
     public List<Integer> indexs;
 
-    public Node(Request request){
+    public MyNode(Request request){
         this.request=request;
         this.indexs  = new ArrayList<>();
     }
@@ -48,7 +48,7 @@ public class Node implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false; // If null or different classes, return false
         }
-        Node otherNode = (Node) obj; // Cast to Request
+        MyNode otherNode = (MyNode) obj; // Cast to Request
         // Compare the request
        return this.request.equals(otherNode.request) && this.indexs.equals(otherNode.indexs);
     }

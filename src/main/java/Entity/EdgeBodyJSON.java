@@ -48,8 +48,8 @@ public class EdgeBodyJSON  extends Edge{
     @SerializedName("structuredObject")
     public StructuredObject structuredObject=null;
 
-    public  EdgeBodyJSON(boolean primitive, String name,Node from,Node to,AtomicObject atomicObject, StructuredObject s){
-        super(from,to,"bodyjson");
+    public  EdgeBodyJSON(boolean primitive, String name, MyNode from, MyNode to, AtomicObject atomicObject, StructuredObject s){
+        super(from,to,"bodyjson",null);
         this.primitive= primitive;
         this.name=name;
         if(primitive){

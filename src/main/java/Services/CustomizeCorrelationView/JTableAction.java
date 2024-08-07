@@ -21,7 +21,6 @@ public class JTableAction {
                 {
                     if (row >= 0 && col ==0 )
                     {
-
                         PanelMessage pm = new PanelMessage();
                         pm.getRegExField().setVisible(false);
                         pm.getRegExLabel().setVisible(false);
@@ -37,10 +36,8 @@ public class JTableAction {
                             }
                         }else
                         {
-
                             PanelMessageInfoService.fill_ur_info_panel(table,frame,row,pm,type);
                             PanelMessageInfoService.fill_response_area(table,frame,row,pm,type);
-
                         }
                         JOptionPane.showConfirmDialog(null,
                                  pm,

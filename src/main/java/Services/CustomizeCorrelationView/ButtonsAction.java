@@ -1,17 +1,30 @@
 package Services.CustomizeCorrelationView;
 
 import Entity.CheckableItem;
+import Entity.DependencyGraph;
+import Entity.Edge;
+import Entity.MyNode;
+import Properties.Paths;
 import Services.CustomizeCorrelationView.CSV.CSVFrameService;
+import Services.Dependencies.TypeEdgeAdaptor;
+import Services.Dependencies.TypeFromNodeAdaptor;
+import Services.Utils;
 import View.AddManuallyCorrelationPage.AddManuallyCorrelationFrame;
 import View.AddManuallyCorrelationPage.CustomCorrelationTableModel;
+import View.CorrelationsPage.CorrelationTableModel;
 import View.CustomizeCorrelationPage.CustomizeCorrelationPage;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ButtonsAction {
 
@@ -20,7 +33,6 @@ public class ButtonsAction {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
                 String message ="";
                 for(int i=0;i<home.getCorrelatorHelperApp().getDependencyGraph().nodes.size();i++){
                     message +="\n\n "+(i)+")  ["+home.getCorrelatorHelperApp().getDependencyGraph().nodes.get(i).request.getMethod()+"] "+home.getCorrelatorHelperApp().getDependencyGraph().nodes.get(i).getRequest().getUrl()+" "+home.getCorrelatorHelperApp().getDependencyGraph().nodes.get(i).indexs.toString();
@@ -81,22 +93,49 @@ public class ButtonsAction {
         };
     }
 
-    public static ActionListener actionSaveButton(CorrelatorHelperService home) {
+    public static ActionListener actionSaveButton(CorrelatorHelperService correlatorHelperService, CustomizeCorrelationPage customizeCorrelationPage) {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-               /* try {
-                    if(home.getTwoPartNameE2E().equals("")) {
-                        JOptionPane.showMessageDialog(null, "The second part of the name file is required!",
-                                "Error!",JOptionPane.ERROR_MESSAGE
-                        );
-                    }else {
-                        String filename = home.getNameE2E().getText()+""+home.getTwoPartNameE2E().getText()+".json";
-                        ReplacementsJSONParser.saveCorrelationsPreferred(home.getCorrelatorHelperApp().getCsvDataSetConfings(),home.getCorrelatorHelperApp().getReplacementsJSONParser(), home.getCheckItemListsRequest(), home.getCorrelatorHelperApp().getFilename_har(),filename);
+                //try {
+                System.out.println("TWOparte2e :"+customizeCorrelationPage.getTwoPartNameE2E().getText());
+                if (customizeCorrelationPage.getTwoPartNameE2E().getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "The second part of the name file is required!",
+                            "Error!", JOptionPane.ERROR_MESSAGE
+                    );
+                } else {
+                    DependencyGraph dependencyGraph_preferred= new DependencyGraph();
+                    dependencyGraph_preferred.setNodes(correlatorHelperService.getDependencyGraph().getNodes());
+                    for (Map<String, List<CheckableItem>> stringListMap : customizeCorrelationPage.getCheckItemListsRequest()) {
+                        for(String key : stringListMap.keySet()){
+                            for(CheckableItem checkableItem : stringListMap.get(key)){
+                                if(checkableItem.isSelected()){
+                                    dependencyGraph_preferred.edges.add(checkableItem.getEdge());
+                                }
+                            }
+                        }
                     }
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }*/
+                    String file_name = customizeCorrelationPage.getNameE2E().getText()+""+customizeCorrelationPage.getTwoPartNameE2E().getText();
+                    Gson gson= new GsonBuilder()
+                            .registerTypeAdapter(MyNode.class,new TypeFromNodeAdaptor())
+                            .registerTypeAdapter(Edge.class, new TypeEdgeAdaptor())
+                            //         .registerTypeAdapterFactory(new EdgeAdapterFactory())
+                            .create();
+                    String graph_json = gson.toJson(dependencyGraph_preferred);
+                    try {
+                        FileWriter file = new FileWriter(Paths.dep_saved_path+"/"+file_name+".json");
+                        file.write(graph_json);
+                        file.flush();
+                        file.close();
+                        JOptionPane.showMessageDialog(null,"ODP correctly saved in the file named "+file_name+".json","ODP Successfully Saved!",JOptionPane.INFORMATION_MESSAGE);
+                        correlatorHelperService.getCorrelationFrame().getCorrelationsTable().setModel(
+                                new CorrelationTableModel(Utils.getFilesByNameAndPath(customizeCorrelationPage.getNameE2E().getText(), Paths.dep_saved_path))
+                        );
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null,e.getMessage(),"Error while saving.. ",JOptionPane.ERROR_MESSAGE);
+                        e.printStackTrace();
+                    }
+                }
             }
         };
     }
@@ -165,6 +204,7 @@ public class ButtonsAction {
                             list_name = CustomCorrelationFrameService.getNamePostData(
                                     home.getCorrelatorHelperApp().dependencyGraph.nodes.get(home.getCurrent_request())
                             );
+                            list_name.add(0,"All");
 
                             addManuallyCorrelationFrame.getNameComboBox().setModel(
                                     new DefaultComboBoxModel(list_name.toArray())

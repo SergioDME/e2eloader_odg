@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BodyDependency {
 
-    public static void check_body_dependency(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, Node to) throws IOException {
+    public static void check_body_dependency(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, MyNode to) throws IOException {
         if ("application/x-www-form-urlencoded".equals(to.getRequest().getPostData().getMimeType())) {
             check_body_urleconded_dep(responseUnstructuredList, req_index, dependencyGraph, to);
         } else if ("application/json".equals(to.getRequest().getPostData().getMimeType())) {
@@ -28,7 +28,7 @@ public class BodyDependency {
     }
 
 
-    private static void check_application_json_dep(List<ResponseUnstructured> responseUnstructuredList, Object object, String name, int req_index, DependencyGraph dependencyGraph, Node to) throws IOException {
+    private static void check_application_json_dep(List<ResponseUnstructured> responseUnstructuredList, Object object, String name, int req_index, DependencyGraph dependencyGraph, MyNode to) throws IOException {
         if (object.getClass() == JsonObject.class) { //jsonobject
             JsonObject jsonObject = (JsonObject) object;
             boolean found = search_dep_body_jsonob(responseUnstructuredList, jsonObject, req_index, dependencyGraph, to, name);
@@ -48,29 +48,31 @@ public class BodyDependency {
             check_primitive_body_json(responseUnstructuredList, req_index, dependencyGraph, to, (String) object, name);
         } else if (object.getClass() == JsonArray.class) {//jsonarray
             JsonArray jsonArray = (JsonArray) object;
-            for (JsonElement element : jsonArray) {
-                if (element.isJsonPrimitive()) {
-                    check_application_json_dep(responseUnstructuredList, element.getAsString(), name, req_index, dependencyGraph, to);
-                } else if (element.isJsonObject()) {
-                    check_application_json_dep(responseUnstructuredList, element.getAsJsonObject(), name, req_index, dependencyGraph, to);
-                } else if (element.isJsonArray()) {
-                    check_application_json_dep(responseUnstructuredList, element.getAsJsonArray(), name, req_index, dependencyGraph, to);
-                }
+            boolean found = search_dep_body_jsonob(responseUnstructuredList, jsonArray, req_index, dependencyGraph, to, name);
+            if(!found){
+                for (JsonElement element : jsonArray) {
+                        if (element.isJsonPrimitive()) {
+                            check_application_json_dep(responseUnstructuredList, element.getAsString(), name, req_index, dependencyGraph, to);
+                        } else if (element.isJsonObject()) {
+                            check_application_json_dep(responseUnstructuredList, element.getAsJsonObject(), name, req_index, dependencyGraph, to);
+                        } else if (element.isJsonArray()) {
+                            check_application_json_dep(responseUnstructuredList, element.getAsJsonArray(), name, req_index, dependencyGraph, to);
+                        }
+                    }
             }
         }
-
     }
 
-    private static boolean search_dep_body_jsonob(List<ResponseUnstructured> responseUnstructuredList, JsonObject object, int req_index, DependencyGraph dependencyGraph, Node to, String name) throws IOException {
+    private static boolean search_dep_body_jsonob(List<ResponseUnstructured> responseUnstructuredList, Object object, int req_index, DependencyGraph dependencyGraph, MyNode to, String name) throws IOException {
         boolean res = false;
         for (int response_index = 0; response_index < req_index; response_index++) {
-            Node from = dependencyGraph.getNodeByIndex(response_index);
+            MyNode from = dependencyGraph.getNodeByIndex(response_index);
             res = res || check_dep_body_jsonb(object, responseUnstructuredList.get(response_index), dependencyGraph, to, from, name);
         }
         return res;
     }
 
-    private static boolean check_dep_body_jsonb(JsonObject object, Object response, DependencyGraph dependencyGraph, Node to, Node from, String name) throws IOException {
+    private static boolean check_dep_body_jsonb(Object object, Object response, DependencyGraph dependencyGraph, MyNode to, MyNode from, String name) throws IOException {
         boolean res = false;
         if (response.getClass() == ResponseUnstructured.class) {
             ResponseUnstructured responseUnstructured = (ResponseUnstructured) response;
@@ -81,12 +83,24 @@ public class BodyDependency {
             StructuredObject structuredObject = (StructuredObject) response;
             String json_schema = JsonSchemaGenerator.generateJSONSchema(object.toString());
             if (json_schema.equals(structuredObject.getSchemaString())) {
-                JsonObject structured_json_obj = new JsonParser().parse(structuredObject.getValue()).getAsJsonObject();
-                if (structured_json_obj.equals(object)) {
+                boolean equals_elements = false;
+               /* if(object.getClass() == JsonObject.class){
+                    JsonObject structured_json_obj = new JsonParser().parse(structuredObject.getValue()).getAsJsonObject();
+                    if (structured_json_obj.equals(object)) {
+                        equals_elements = true;
+                    }
+                } else if (object.getClass() == JsonArray.class){
+                    JsonArray structured_json_arr = new JsonParser().parse(structuredObject.getValue()).getAsJsonArray();
+                    if (structured_json_arr.equals(object)) {
+                        equals_elements=true;
+                    }
+                }
+                if(equals_elements){
+                 */
                     EdgeBodyJSON edgeBodyJSON = new EdgeBodyJSON(false, name, from,to, null, structuredObject);
                     dependencyGraph.edges.add(edgeBodyJSON);
                     return true;
-                }
+                //}
             }
             for (Object o : structuredObject.getObjects()) {
                 res = res || check_dep_body_jsonb(object, o, dependencyGraph, to, from, name);
@@ -95,14 +109,14 @@ public class BodyDependency {
         return res;
     }
 
-    private static void check_primitive_body_json(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, Node to, String value, String name) {
+    private static void check_primitive_body_json(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, MyNode to, String value, String name) {
         for (int response_index = 0; response_index < req_index; response_index++) {
-            Node from = dependencyGraph.getNodeByIndex(response_index);
+            MyNode from = dependencyGraph.getNodeByIndex(response_index);
             check_primitive(name, value, responseUnstructuredList.get(response_index), to, from, dependencyGraph);
         }
     }
 
-    private static void check_primitive(String name, String value, Object response, Node to, Node from, DependencyGraph dependencyGraph) {
+    private static void check_primitive(String name, String value, Object response, MyNode to, MyNode from, DependencyGraph dependencyGraph) {
         if (response.getClass() == ResponseUnstructured.class) {
             ResponseUnstructured responseUnstructured = (ResponseUnstructured) response;
             for (Object o : responseUnstructured.getObjects()) {
@@ -116,7 +130,7 @@ public class BodyDependency {
         }
     }
 
-    private static void check_primitive_atomic_evaluation(Object o, String name, String value, StructuredObject father, Node to, Node from, DependencyGraph dependencyGraph) {
+    private static void check_primitive_atomic_evaluation(Object o, String name, String value, StructuredObject father, MyNode to, MyNode from, DependencyGraph dependencyGraph) {
         if (o.getClass() == AtomicObject.class) {
             AtomicObject atomicObject = (AtomicObject) o;
             AtomicDependencyValidator atomicDependencyValidator = new AtomicDependencyValidator();
@@ -129,16 +143,16 @@ public class BodyDependency {
         }
     }
 
-    private static void check_body_urleconded_dep(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, Node to) {
+    private static void check_body_urleconded_dep(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, MyNode to) {
         for (Param param : to.getRequest().getPostData().getParams()) {
             for (int response_index = 0; response_index < req_index; response_index++) {
-                Node from = dependencyGraph.getNodeByIndex(response_index);
+                MyNode from = dependencyGraph.getNodeByIndex(response_index);
                 check_urlencoded(param, responseUnstructuredList.get(response_index), to, from, dependencyGraph);
             }
         }
     }
 
-    private static void check_urlencoded(Param param, Object response, Node to, Node from, DependencyGraph dependencyGraph) {
+    private static void check_urlencoded(Param param, Object response, MyNode to, MyNode from, DependencyGraph dependencyGraph) {
         if (response.getClass() == ResponseUnstructured.class) {
             ResponseUnstructured responseUnstructured = (ResponseUnstructured) response;
             for (Object o : responseUnstructured.getObjects()) {
@@ -152,7 +166,7 @@ public class BodyDependency {
         }
     }
 
-    private static void check_urlencoded_atomic_evaluation(Object o, Param param, StructuredObject father, Node to, Node from, DependencyGraph dependencyGraph) {
+    private static void check_urlencoded_atomic_evaluation(Object o, Param param, StructuredObject father, MyNode to, MyNode from, DependencyGraph dependencyGraph) {
         if (o.getClass() == AtomicObject.class) {
             AtomicObject atomicObject = (AtomicObject) o;
             AtomicDependencyValidator atomicDependencyValidator = new AtomicDependencyValidator();

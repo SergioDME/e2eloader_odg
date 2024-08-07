@@ -22,13 +22,14 @@ public class EdgeHeader extends Edge {
 
     @SerializedName("header_name")
     public String header_name;
-    @SerializedName("dependency")
+    /*@SerializedName("dependency")
     public AtomicObject dependency;
+    */
 
-    public  EdgeHeader(Node from,Node to, String header_name, AtomicObject atomicObject){
-        super(from,to,"header");
+    public  EdgeHeader(MyNode from, MyNode to, String header_name, AtomicObject atomicObject){
+        super(from,to,"header",atomicObject);
         this.header_name=header_name;
-        this.dependency=atomicObject;
+       // this.dependency=atomicObject;
     }
 
     @Override
