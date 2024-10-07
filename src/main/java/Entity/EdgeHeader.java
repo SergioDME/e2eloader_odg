@@ -32,6 +32,13 @@ public class EdgeHeader extends Edge {
        // this.dependency=atomicObject;
     }
 
+    public  EdgeHeader(MyNode from, MyNode to, String header_name, AtomicObject atomicObject,int index_from, int index_to){
+        super(from,to,"header",atomicObject);
+        this.header_name=header_name;
+        this.from_index=index_from;
+        this.to_index=index_to;
+        // this.dependency=atomicObject;
+    }
     @Override
     public String toString(){
         return "HEADER DEPENDENCY ["+header_name+"] TO:"+to+" <- FROM"+from+"atomicObject:"+dependency;

@@ -1,14 +1,19 @@
 package Services.CorrelationsView.ScriptGeneration;
 
 import Services.ResponseAnalyzer.AtomicObject;
+import Services.ResponseAnalyzer.StructuredObject;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.ParseContext;
 import com.jayway.jsonpath.spi.json.JacksonJsonNodeJsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.w3c.dom.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,6 +29,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import Entity.DependencyGraph;
 import Entity.Edge;
@@ -33,6 +40,7 @@ import Entity.EdgeUrl;
 import Entity.EdgeHeader;
 import Entity.EdgeQueryParam;
 import Properties.Paths;
+import Entity.EdgeBodyJSON;
 
 public class JMeterAdaption {
 
@@ -291,7 +299,7 @@ public class JMeterAdaption {
         hashTree.appendChild(doc.createElement("hashTree"));
     }
 
-    public void addRegExtractorMain(Document doc, Node http,List<Object> dependencies) {
+    public void addRegExtractorMain(Document doc, Node http,List<Object> dependencies,int index) {
         String  url = http.getAttributes().getNamedItem("testname").getTextContent();
         String variable_names = "";
         String path_expression ="";
@@ -303,7 +311,7 @@ public class JMeterAdaption {
                 AtomicObject atomicObject = (AtomicObject) object;
                 if(!atomicObject.from_set_cookie) {
                     if ("".equals(variable_names)) {
-                        variable_names = atomicObject.name;
+                        variable_names = atomicObject.name+"_"+index;
                     } else {
                         variable_names = variable_names + ";" + atomicObject.name;
                     }
@@ -322,6 +330,24 @@ public class JMeterAdaption {
                 }
             }else{
                 // TO DO
+                StructuredObject structuredObject = (StructuredObject) object;
+                if ("".equals(variable_names)) {
+                    variable_names = structuredObject.name+"_"+index;
+                } else {
+                    variable_names = variable_names + ";" + structuredObject.name;
+                }
+
+                if ("".equals(path_expression)) {
+                    path_expression = structuredObject.xpath;
+                } else {
+                    path_expression = path_expression + ";" + structuredObject.xpath;
+                }
+
+                if ("".equals(default_value)) {
+                    default_value = "NOT_FOUND";
+                } else {
+                    default_value = default_value + ";" + "NOT_FOUND";
+                }
             }
         }
         Node hashTree = http.getNextSibling().getNextSibling();
@@ -352,10 +378,10 @@ public class JMeterAdaption {
             {
                 MyNode first_node = dependencyGraph.getNodeByIndex(0);
                 List<Edge> dependencies = dependencyGraph.getDependenciesByNode(first_node);
-                List<Object> dependenciesbyfirstnode = dependencyGraph.getDependenciesToExtractToFromNode(first_node);
+                List<Object> dependenciesbyfirstnode = dependencyGraph.getDependenciesToExtractToFromNode(first_node,0);
                 analizeHttpNode(doc,http0,dependencies);
                 if(!dependenciesbyfirstnode.isEmpty()) {
-                    addRegExtractorMain(doc,http0,dependenciesbyfirstnode);
+                    addRegExtractorMain(doc,http0,dependenciesbyfirstnode,0);
                 }
             }
             for (int i = 1; i < listOfHttp.getLength(); i++)
@@ -398,12 +424,12 @@ public class JMeterAdaption {
                         MyNode node = dependencyGraph.getNodeByIndex(i);
                         //System.out.println("REPLACEMENT ["+(i-1)+"]");
                         List<Edge> dependencies = dependencyGraph.getDependenciesByNode(node);
-                        List<Object> dependentByMe = dependencyGraph.getDependenciesToExtractToFromNode(node);
+                        List<Object> dependentByMe = dependencyGraph.getDependenciesToExtractToFromNode(node,i);
                         //System.out.println(replacements.get(i-1));
                         analizeHttpNode(doc,http,dependencies);
                         if (!dependentByMe.isEmpty())
                         {
-                            addRegExtractorMain(doc,http,dependentByMe);
+                            addRegExtractorMain(doc,http,dependentByMe,i);
                         }
                         if(checkTotalSaveResponse(i)) {
                             addPostProcessorSaveAllResponse(doc,http,i);
@@ -545,7 +571,7 @@ public class JMeterAdaption {
         return false;
     }
 
-    public void analizeHttpNode(Document doc, Node http, List<Edge> dependencies) throws MalformedURLException, URISyntaxException {
+    public void analizeHttpNode(Document doc, Node http, List<Edge> dependencies) throws MalformedURLException, URISyntaxException, ParseException {
         NodeList childNodes = http.getChildNodes();
         for(int j=0 ; j< childNodes.getLength();j++) {
             Node item = childNodes.item(j);
@@ -572,7 +598,7 @@ public class JMeterAdaption {
                                     if(mimeType.equals("application/x-www-form-urlencoded")) {
                                         replacementsInQueryParameters_PostData(item, dependencies, "postData");
                                     }else if(mimeType.equals("application/json")){
-                                        replacementInPostDataUrlEncoded(doc,http,item,dependencies);
+                                        replacementInPostDataBodyJson(doc,http,item,dependencies);
                                     }
                                 }
                             }
@@ -582,8 +608,39 @@ public class JMeterAdaption {
             }
         }
     }
+    private String findJsonPathRecursive(Object json, String key, String currentPath) {
+        if (json instanceof JSONObject) {
+            JSONObject jsonObject = (JSONObject) json;
+            for (Object k : jsonObject.keySet()) {
+                String keyStr = (String) k;
+                Object value = jsonObject.get(keyStr);
+                String newPath = currentPath + "['" + keyStr + "']";
 
-    private void replacementInPostDataUrlEncoded(Document doc,Node http, Node item, List<Edge> dependencies) {
+                if (keyStr.equals(key)) {
+                    return newPath;
+                }
+
+                String result = findJsonPathRecursive(value, key, newPath);
+                if (result != null) {
+                    return result;
+                }
+            }
+        } else if (json instanceof JSONArray) {
+            JSONArray jsonArray = (JSONArray) json;
+            for (int i = 0; i < jsonArray.size(); i++) {
+                String newPath = currentPath + "[" + i + "]";
+                Object value = jsonArray.get(i);
+
+                String result = findJsonPathRecursive(value, key, newPath);
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+
+    private void replacementInPostDataBodyJson(Document doc,Node http, Node item, List<Edge> dependencies) throws ParseException {
         NodeList elementPropChild = item.getChildNodes();
         for (int k = 0; k < elementPropChild.getLength(); k++) {
             Node collectionProp = elementPropChild.item(k);
@@ -603,18 +660,42 @@ public class JMeterAdaption {
                                             {
                                                 String data = stringProp.getTextContent();
                                                 //JSONArray substitutions = (JSONArray) ((JSONObject)replacement.get("postData")).get("substitutions");
-                                                //String isDipFromPrevResp = IsDipendentFromPreviousAllResponse(substitutions);
-                                                /*if(!isDipFromPrevResp.equals("-1")) {
-                                                    data = "${Request"+isDipFromPrevResp+"_Response}";
-                                                    appendPrePocessorNodeToModifyResponseData(doc,http,substitutions,isDipFromPrevResp);
-                                                }*
+                                                EdgeBodyJSON isDipFromPrevResp = IsDipendentFromPreviousAllResponse(dependencies);
+                                                if(isDipFromPrevResp!=null) {
+                                                    String name = isDipFromPrevResp.structuredObject.name;
+                                                    data = "${"+name+"_"+isDipFromPrevResp.from_index+"}";
+                                                    //appendPrePocessorNodeToModifyResponseData(doc,http,isDipFromPrevResp);
+                                                }
                                                 else {
-                                                    for (Object sub : substitutions) {
-                                                        String value = ((JSONObject) sub).get("value").toString();
-                                                        String name = (String) ((JSONObject) sub).get("name");
-                                                        data = replaceJSONObject(data, name, value);
+                                                    for (Edge edge : dependencies) {
+                                                        if(edge.getClass().equals(EdgeBodyJSON.class))
+                                                        {
+                                                            EdgeBodyJSON edgeBodyJSON = (EdgeBodyJSON)edge;
+                                                            JSONParser parser = new JSONParser();
+                                                            String jsonString = edgeBodyJSON.to.request.getPostData().getText();
+                                                            JSONObject jsonObject = (JSONObject) parser.parse(jsonString);
+                                                            String xpath = findJsonPathRecursive(jsonObject,edgeBodyJSON.name,"$");
+
+                                                            if(edgeBodyJSON.dependency!=null){ // CASO ATOMICOBJECT
+                                                                String name = edgeBodyJSON.dependency.name;
+                                                                if(!name.startsWith("$")){
+                                                                    if(!edgeBodyJSON.dependency.value.equals("manually_inserted") && !edgeBodyJSON.dependency.value.equals("manually_csv"))
+                                                                        name="${"+name+"_"+edgeBodyJSON.from_index+"}";
+                                                                    else
+                                                                        name="${"+name+"}";
+                                                                }
+                                                                data = replaceAtomicJSONObject(data, xpath,name);
+                                                            }else
+                                                            {
+                                                                String name = edgeBodyJSON.structuredObject.name;
+                                                                if(!name.startsWith("$")){
+                                                                    name="${"+name+"_"+edgeBodyJSON.from_index+"}";
+                                                                }
+                                                                data = replaceStructureJSONObject(data,xpath,edgeBodyJSON.name,name);
+                                                            }
+                                                        }
                                                     }
-                                                }*/
+                                                }
                                                 stringProp.setTextContent(data);
                                             }
                                         }
@@ -628,7 +709,7 @@ public class JMeterAdaption {
         }
     }
 
-    private void appendPrePocessorNodeToModifyResponseData(Document doc, Node http, JSONArray substitutions,String num) {
+    private void appendPrePocessorNodeToModifyResponseData(Document doc, Node http, EdgeBodyJSON edgeBodyJSON) {
         Node preProcessor = null;
         Node hashTree = http.getNextSibling().getNextSibling();
         preProcessor = doc.createElement("JSR223PreProcessor");
@@ -656,9 +737,12 @@ public class JMeterAdaption {
         ((Element)script).setAttribute("name","script");
 
         String scriptString = "import JMeterUtils.JMeterCustomUtils;\n" +
-                "String data = vars.get(\"Request"+num+"_Response\");\n";
+                "String data = vars.get(\"Request"+edgeBodyJSON.from.indexs+"_Response\");\n";
         int flagFirstSubstitutions = 0;
+        /*
+        TO DO
         for(Object sub : substitutions) {
+
             String name  = ((JSONObject)sub).get("name").toString();
             String value = ((JSONObject)sub).get("value").toString();
             if(!name.equals("All")){
@@ -674,8 +758,8 @@ public class JMeterAdaption {
                             "result = jMeterCustomUtils.replaceJSONObject(result,xpath,value);\n";
                 }
             }
-        }
-        scriptString+= "vars.put(\"Request"+num+"_Response\",result);\n";
+        }*/
+        scriptString+= "vars.put(\"Request"+edgeBodyJSON.from.indexs+"_Response\",result);\n";
         script.setTextContent(scriptString);
 
         preProcessor.appendChild(scriptLenguage);
@@ -687,17 +771,21 @@ public class JMeterAdaption {
         hashTree.appendChild(preProcessor);
     }
 
-    private String IsDipendentFromPreviousAllResponse(JSONArray substitutions) {
+    private EdgeBodyJSON IsDipendentFromPreviousAllResponse(List<Edge> dependencies) {
 
-        for(Object elem : substitutions) {
-            if ( ((JSONObject)elem).get("name").toString().equals("All")){
-                return ((JSONObject)elem).get("num_req").toString();
+        for(Edge edge : dependencies) {
+            if(edge.getClass().equals(EdgeBodyJSON.class)){
+                EdgeBodyJSON edgeBodyJSON = (EdgeBodyJSON) edge;
+                if ( edgeBodyJSON.structuredObject!= null && edgeBodyJSON.name.equals("All")){
+                    return edgeBodyJSON;
+                }
             }
+
         }
-        return "-1";
+        return null;
     }
 
-    private String replaceJSONObject (String data, String xpath, String value) {
+    private String replaceAtomicJSONObject (String data, String xpath, String value) {
         final Configuration configuration = Configuration.builder()
                 .jsonProvider(new JacksonJsonNodeJsonProvider())
                 .mappingProvider(new JacksonMappingProvider())
@@ -705,6 +793,20 @@ public class JMeterAdaption {
         JsonNode updatedJson = JsonPath.using(configuration).parse(data).set(xpath,value).json();
         return updatedJson.toString();
     }
+
+    private static String replaceFieldValue(String json, String key, String value) {
+        // Creazione della stringa da cercare e della stringa sostitutiva
+        String toReplace = "\"" + key + "\":\"" + value + "\"";
+        String replacement = "\"" + key + "\":" + value;
+        // Sostituzione
+        String modifiedJsonString = json.replace(toReplace, replacement);
+        return modifiedJsonString;
+    }
+    private String replaceStructureJSONObject(String data, String xpath,String key, String value){
+        String json = replaceAtomicJSONObject(data,xpath,value);
+        return  replaceFieldValue(json,key,value);
+    }
+
 
     public void replacementsInURL(Node item, List<Edge> dependencies) throws MalformedURLException, URISyntaxException {
         if(!dependencies.isEmpty()) {
@@ -717,7 +819,11 @@ public class JMeterAdaption {
                     EdgeUrl edgeUrl = (EdgeUrl) edge;
                     for (int i = 0; i < subpaths.length; i++) {
                         if (subpaths[i].equals(edgeUrl.subPath)) {
-                            subpaths[i] = "${" + edgeUrl.dependency.name + "}";
+                            if(!edgeUrl.dependency.value.equals("manually_inserted") && !edgeUrl.dependency.value.equals("manually_csv"))
+                                subpaths[i] = "${" + edgeUrl.dependency.name+"_"+edgeUrl.from_index+"}";
+                            else
+                                subpaths[i] = "${" + edgeUrl.dependency.name+"}";
+
                             break;
                         }
                     }
@@ -806,7 +912,11 @@ public class JMeterAdaption {
             if(edge.getClass().equals(EdgeHeader.class)){
                 EdgeHeader edgeHeader = (EdgeHeader)edge;
                 if(name.equals(edgeHeader.header_name)) {
-                    value = "${"+edgeHeader.dependency.name+"}";
+                    if(!edgeHeader.dependency.value.equals("manually_inserted") && !edgeHeader.dependency.value.equals("manually_csv"))
+                        value = "${"+edgeHeader.dependency.name+"_"+edgeHeader.from_index+"}";
+                    else
+                        value = "${"+edgeHeader.dependency.name+"}";
+
                     break;
                 }
             }
@@ -856,7 +966,10 @@ public class JMeterAdaption {
                         if(edge.getClass().equals(EdgeQueryParam.class)){
                             EdgeQueryParam edgeQueryParam = (EdgeQueryParam) edge;
                             if(name.equals(edgeQueryParam.query_param_name)) {
-                                value = "${"+edgeQueryParam.dependency.name+"}";
+                                if(!edgeQueryParam.dependency.value.equals("manually_inserted")&&!edgeQueryParam.dependency.value.equals("manually_csv"))
+                                    value = "${"+edgeQueryParam.dependency.name+"_"+edgeQueryParam.from_index+"}";
+                                else
+                                    value = "${"+edgeQueryParam.dependency.name+"}";
                                 break;
                             }
                         }
@@ -1192,7 +1305,7 @@ public class JMeterAdaption {
             if(num_item_req == (index)) {
                 String value = ((JSONObject)item_request).get("Value").toString();
                 String name = (String) ((JSONObject)item_request).get("Name");
-                newData = replaceJSONObject(newData,name,value);
+                newData = replaceAtomicJSONObject(newData,name,value);
             }
         }
         return newData;

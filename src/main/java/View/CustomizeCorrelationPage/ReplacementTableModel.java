@@ -190,8 +190,8 @@ public class ReplacementTableModel extends AbstractTableModel {
                 EdgeBodyJSON edgeBodyJSON = (EdgeBodyJSON) item.getEdge();
                 name=edgeBodyJSON.name;
                 num_req=getIndexByNode(edgeBodyJSON.from);
-                from = getFromByNode(edgeBodyJSON.from,edgeBodyJSON.atomicObject);
-                value = getValueByNode(edgeBodyJSON.from, edgeBodyJSON.atomicObject,edgeBodyJSON.structuredObject,edgeBodyJSON.isPrimitive());
+                from = getFromByNode(edgeBodyJSON.from,edgeBodyJSON.dependency);
+                value = getValueByNode(edgeBodyJSON.from, edgeBodyJSON.dependency,edgeBodyJSON.structuredObject,edgeBodyJSON.isPrimitive());
             }else if(item.getEdge().getClass() == EdgeBodyUE.class){
                 EdgeBodyUE edgeBodyUE = (EdgeBodyUE) item.getEdge();
                 name=edgeBodyUE.name;
@@ -339,7 +339,7 @@ public class ReplacementTableModel extends AbstractTableModel {
                         break;}
                     case 3 : {setFromByNode(edgeBodyJSON.from,value); break;}
                     case 4 : {
-                        setValueByNode(edgeBodyJSON.from,edgeBodyJSON.atomicObject,edgeBodyJSON.structuredObject,edgeBodyJSON.isPrimitive(),value);
+                        setValueByNode(edgeBodyJSON.from,edgeBodyJSON.dependency,edgeBodyJSON.structuredObject,edgeBodyJSON.isPrimitive(),value);
                         break;
                     }
                     case 5 : {item.setSelected((boolean) value);}

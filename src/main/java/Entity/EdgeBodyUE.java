@@ -29,6 +29,15 @@ public class EdgeBodyUE extends Edge{
         //this.dependency=atomicObject;
     }
 
+    public EdgeBodyUE(MyNode from , MyNode to, String url_enc, AtomicObject atomicObject,int index_from , int index_to){
+        super(from,to,"bodyue",atomicObject);
+        this.name=url_enc;
+        this.from_index=index_from;
+        this.to_index=index_to;
+        //this.dependency=atomicObject;
+    }
+
+
     @Override
     public String toString(){
         return "BODYUE DEPENDENCY ["+name+"] TO:"+to+" <- FROM:"+from+"atomicObject:"+dependency;

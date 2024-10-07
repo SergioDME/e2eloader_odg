@@ -25,13 +25,13 @@ public class EdgeBodyJSON  extends Edge{
         this.name = name;
     }
 
-    public AtomicObject getAtomicObject() {
+    /*public AtomicObject getAtomicObject() {
         return atomicObject;
-    }
+    }*/
 
-    public void setAtomicObject(AtomicObject atomicObject) {
+    /*public void setAtomicObject(AtomicObject atomicObject) {
         this.atomicObject = atomicObject;
-    }
+    }*/
 
     public StructuredObject getStructuredObject() {
         return structuredObject;
@@ -43,26 +43,38 @@ public class EdgeBodyJSON  extends Edge{
 
     @SerializedName("name")
     public String name;
-    @SerializedName("atomicObject")
-    public AtomicObject atomicObject=null;
+    //@SerializedName("atomicObject")
+    //public AtomicObject atomicObject=null;
     @SerializedName("structuredObject")
     public StructuredObject structuredObject=null;
 
     public  EdgeBodyJSON(boolean primitive, String name, MyNode from, MyNode to, AtomicObject atomicObject, StructuredObject s){
-        super(from,to,"bodyjson",null);
+        super(from,to,"bodyjson",atomicObject);
         this.primitive= primitive;
         this.name=name;
-        if(primitive){
-            this.atomicObject=atomicObject;
-        }else {
+        if(!primitive){
+            //super(from.to,"bodyjson",null),
             this.structuredObject=s;
         }
+    }
+
+
+    public  EdgeBodyJSON(boolean primitive, String name, MyNode from, MyNode to, AtomicObject atomicObject, StructuredObject s,int index_from ,int index_to){
+        super(from,to,"bodyjson",atomicObject);
+        this.primitive= primitive;
+        this.name=name;
+        if(!primitive){
+            //super(from.to,"bodyjson",null),
+            this.structuredObject=s;
+        }
+        this.from_index=index_from;
+        this.to_index=index_to;
     }
 
     @Override
     public String toString(){
         if(primitive)
-            return "BODYJS AT DEPENDENCY ["+name+"] TO:"+to+" <- FROM:"+from+"atomicObject:"+atomicObject;
+            return "BODYJS AT DEPENDENCY ["+name+"] TO:"+to+" <- FROM:"+from+"atomicObject:"+dependency;
         else
             return  "BODYJS ST DEPENDENCY ["+name+"] TO:"+to+" <- FROM:"+from+" structuredObject:"+structuredObject;
     }

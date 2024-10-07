@@ -8,9 +8,9 @@ import Services.ResponseAnalyzer.StructuredObject;
 import java.util.List;
 
 public class CookieDependency {
-    public static void check_cookie_dependency(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, MyNode to) {
+    public static void check_cookie_dependency(List<ResponseUnstructured> responseUnstructuredList, int req_index, DependencyGraph dependencyGraph, MyNode to,int first_index_response) {
         for( Cookie cookie: to.getRequest().getCookies()){
-            for (int response_index = 0; response_index < req_index; response_index++) {
+            for (int response_index = first_index_response; response_index < req_index; response_index++) {
                 MyNode from = dependencyGraph.getNodeByIndex(response_index);
                 check_cookie(cookie, responseUnstructuredList.get(response_index),to,from,dependencyGraph);
             }

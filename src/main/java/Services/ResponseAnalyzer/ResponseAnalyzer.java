@@ -45,21 +45,21 @@ public class ResponseAnalyzer {
                     objectList.add(new AtomicObject(value.getAsString(),key,String.format("%s.%s", xPath,key)));
                 } else if (value.isJsonObject()) {
                     StructuredObject structuredObject = null;
-                    structuredObject = new StructuredObject(key,value.getAsJsonObject().toString());
+                    structuredObject = new StructuredObject(key,value.getAsJsonObject().toString(),String.format("%s.%s", xPath,key));
                     objectList.add(structuredObject);
                     //visitNode(value.getAsJsonObject(), String.format("%s.%s", xPath,key), "".equals(varName) ? key.toString() :varName+"-"+key.toString(),structuredObject.getObjects());
                     visitNode(value.getAsJsonObject(), String.format("%s.%s", xPath,key), structuredObject.getObjects());
                 }else if (value.isJsonArray()){
                     JsonArray jsonArray = value.getAsJsonArray();
-                    StructuredObject structuredObject = new StructuredObject(key,jsonArray.toString());
+                    StructuredObject structuredObject = new StructuredObject(key,jsonArray.toString(),String.format("%s.%s", xPath,key));
                     objectList.add(structuredObject);
-                    iterateJSONArray(jsonArray,xPath,key,structuredObject.getObjects());
+                    iterateJSONArray(jsonArray,String.format("%s.%s", xPath,key),key,structuredObject.getObjects());
                 }
             }
         }else if(object.getClass() == JsonArray.class){
             JsonArray jsonArray = (JsonArray)object;
             StructuredObject structuredObject = null;
-            structuredObject = new StructuredObject("",jsonArray.toString());
+            structuredObject = new StructuredObject("",jsonArray.toString(),xPath);
             objectList.add(structuredObject);
             iterateJSONArray(jsonArray,xPath,"",structuredObject.getObjects());
         }
@@ -70,13 +70,14 @@ public class ResponseAnalyzer {
         for(JsonElement element : jsonArray){
             //String forname =""+id+"";
             if(element.isJsonPrimitive()){
-                objectsList.add(new AtomicObject(element.getAsString(),varName,String.format("%s.%s[%d]", xPath,varName,id++)));
+                objectsList.add(new AtomicObject(element.getAsString(),varName,String.format("%s.%s[%d]", xPath,varName,id)));
             } else if (element.isJsonObject()){
                 StructuredObject structuredObject = null;
-                structuredObject = new StructuredObject(varName,element.getAsJsonObject().toString());
+                structuredObject = new StructuredObject(varName,element.getAsJsonObject().toString(),String.format("%s[%d]", xPath, id));
                 objectsList.add(structuredObject);
-                visitNode(element.getAsJsonObject(), String.format("%s[%d]", xPath, id++),structuredObject.getObjects());
+                visitNode(element.getAsJsonObject(), String.format("%s[%d]", xPath, id),structuredObject.getObjects());
             }
+            id++;
         }
     }
 

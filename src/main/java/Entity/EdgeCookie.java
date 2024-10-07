@@ -31,6 +31,14 @@ public class EdgeCookie extends  Edge{
         //this.dependency=atomicObject;
     }
 
+    public EdgeCookie(MyNode from, MyNode to, String cookie_name, AtomicObject atomicObject,int index_from,int index_to){
+        super(from,to,"cookie",atomicObject);
+        this.name=cookie_name;
+        this.from_index=index_from;
+        this.to_index=index_to;
+        //this.dependency=atomicObject;
+    }
+
     @Override
     public String toString(){
         return "COOKIE DEPENDENCY ["+name+"] TO:"+to+" <- FROM"+from+"atomicObject:"+dependency;

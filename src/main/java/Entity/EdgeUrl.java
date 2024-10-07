@@ -29,6 +29,13 @@ public class EdgeUrl  extends Edge{
         //this.dependency=atomicObject;
     }
 
+    public EdgeUrl(MyNode from, MyNode to, String subPath, AtomicObject atomicObject,int from_index, int to_index) {
+        super(from,to,"url",atomicObject);
+        this.subPath=subPath;
+        this.from_index=from_index;
+        this.to_index=to_index;
+        //this.dependency=atomicObject;
+    }
     @Override
     public String toString(){
         return "URL DEPENDENCY ["+subPath+"]  TO:"+to+" <- FROM:"+from+"atomicObject:"+dependency;

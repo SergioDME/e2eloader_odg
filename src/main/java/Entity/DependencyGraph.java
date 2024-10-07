@@ -37,11 +37,13 @@ public class DependencyGraph implements Serializable {
 
 
 
-    public MyNode addRequestoToGraph(Request request, int index){ // the method returns null if the request was already analyzed
-        for(MyNode node : nodes){
+    public MyNode addRequestoToGraph(Request request, int index)
+    {
+        for(MyNode node : nodes)
+        {
             if(node.request.equals(request)){
                 node.indexs.add(index);
-                return  null;
+                return  node;
             }
         }
         MyNode node = new MyNode(request);
@@ -69,6 +71,7 @@ public class DependencyGraph implements Serializable {
     }
 
     public boolean saveDependencyGraph(DependencyGraph dependencyGraph, File file_har){
+        dependencyGraph.print_graph();
         // Salvataggio della struttura dati su un file
         int dotIndex = file_har.getName().lastIndexOf('.');
         String file_name =  (dotIndex == -1) ? file_har.getName() : file_har.getName().substring(0, dotIndex);
@@ -78,6 +81,9 @@ public class DependencyGraph implements Serializable {
        //         .registerTypeAdapterFactory(new EdgeAdapterFactory())
                 .create();
         String graph_json = gson.toJson(dependencyGraph);
+
+
+
 
         boolean res;
         try {
@@ -118,22 +124,28 @@ public class DependencyGraph implements Serializable {
     }
 
 
-    public List<Object> getDependenciesToExtractToFromNode(MyNode from){
+    public List<Object> getDependenciesToExtractToFromNode(MyNode from,int index){
         List<Object> dependencies = new ArrayList<>();
+        //int index_of_index = from.indexs.indexOf(index);
+        //if(index_of_index>0)
+        //        return dependencies;
+
         for(Edge edge : this.edges){
-            if(edge.from != null && edge.from.equals(from)){
+            if(edge.from != null && edge.from.equals(from) && edge.from_index==index){
                 if(!dependencies.contains(edge.dependency))
                 {
                     if(edge.type.equals("bodyjson")){
                         EdgeBodyJSON edgeBodyJSON = (EdgeBodyJSON) edge;
                         if(edgeBodyJSON.isPrimitive()){
-                            dependencies.add(edgeBodyJSON.atomicObject);
+                            if(!edgeBodyJSON.dependency.from_set_cookie)
+                                dependencies.add(edgeBodyJSON.dependency);
                         }else{
                             dependencies.add(edgeBodyJSON.structuredObject);
                         }
                     }
                     else {
-                        dependencies.add(edge.dependency);
+                        if(!edge.dependency.from_set_cookie)
+                            dependencies.add(edge.dependency);
                     }
                 }
             }

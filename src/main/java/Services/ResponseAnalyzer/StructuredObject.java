@@ -13,9 +13,10 @@ import static Services.ResponseAnalyzer.JsonSchemaGenerator.generateJSONSchema;
 
 public class StructuredObject implements Serializable {
 
-    public StructuredObject(String name, String value)  {
+    public StructuredObject(String name, String value,String xpath)  {
         this.name = name;
         this.value = value;
+        this.xpath=xpath;
         this.objects = new ArrayList<>();
        // if (value.startsWith("{")) {
             try {
@@ -58,6 +59,17 @@ public class StructuredObject implements Serializable {
     public String name;
     @SerializedName("value")
     public String value;
+
+    public String getXpath() {
+        return xpath;
+    }
+
+    public void setXpath(String xpath) {
+        this.xpath = xpath;
+    }
+
+    @SerializedName("xpath")
+    public String xpath;
     @SerializedName("objects")
     public List<Object> objects;
 
@@ -68,7 +80,7 @@ public class StructuredObject implements Serializable {
     String schemaString;
 
     public String toString(){
-        return "[STRUCTURED] name: "+name+" value:"+value+" size:"+objects.size()+"\n [JSON_SCHEMA]: "+getSchemaString();
+        return "[STRUCTURED] name: "+name+" value:"+value+" size:"+objects.size()+"\n [JSON_SCHEMA]: "+getSchemaString()+" XPATH:"+xpath;
     }
 
 

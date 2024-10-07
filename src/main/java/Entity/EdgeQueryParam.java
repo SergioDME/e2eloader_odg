@@ -31,6 +31,15 @@ public class EdgeQueryParam extends  Edge{
         //this.dependency=atomicObject;
     }
 
+    public EdgeQueryParam(MyNode from, MyNode to, String query_param_name, AtomicObject atomicObject,int index_from ,int index_to){
+        super(from,to,"queryparam",atomicObject);
+        this.query_param_name=query_param_name;
+        this.from_index=index_from;
+        this.to_index=index_to;
+        //this.dependency=atomicObject;
+    }
+
+
     @Override
     public String toString(){
         return "QUERYPARAM DEPENDENCY ["+query_param_name+"]  TO:"+to+" <- FROM:"+from+"atomicObject:"+dependency;
