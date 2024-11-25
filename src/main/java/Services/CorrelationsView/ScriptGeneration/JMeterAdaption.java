@@ -48,6 +48,7 @@ public class JMeterAdaption {
     private static ArrayList<variable> variables = new ArrayList<>();
     private static Map<String,Map <Integer, TreeSet<variableWS>>> variablesWS = new HashMap<>();
     private static Set<Integer> SaveTotalResponse = new HashSet<>();
+
     public static void runJMeterAdaption(DependencyGraph dependencyGraph, String filenameJmx, String filename) throws Exception {
         JMeterAdaption ja = new JMeterAdaption();
         ja.replaceAdaption(dependencyGraph,filenameJmx,filename);
