@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import Entity.UltimateThreadGroup;
+import Services.CorrelationsView.ScriptGeneration.JMeterLoadCreator;
+import View.CorrelationsPage.ScriptsTableModel;
 import View.Home;
 
 import javax.swing.*;
@@ -53,9 +55,9 @@ public class HomeServices {
                             break;
                         }
                     }
-                  /*  if(validrows) {
+                    if(validrows) {
                         try {
-                            JMeterLoadCreator.runJMeterCreator(((ScriptChosenModelTable)home.getScriptChosenTable().getModel()).getThredGroups(),name);
+                            JMeterLoadCreator.runJMeterCreator(((WorkloadTableModel)home.getScriptChosenTable().getModel()).getThredGroups(),name);
                             JOptionPane.showMessageDialog(null,"Script created!","Success",JOptionPane.INFORMATION_MESSAGE);
                         } catch (ParserConfigurationException | IOException e) {
                             JOptionPane.showMessageDialog(null,e.getMessage(),"error",JOptionPane.ERROR_MESSAGE);
@@ -66,7 +68,6 @@ public class HomeServices {
                         }
                     }
 
-                   */
                 }
             }
         };

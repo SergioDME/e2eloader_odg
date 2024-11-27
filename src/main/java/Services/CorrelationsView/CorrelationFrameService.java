@@ -180,10 +180,9 @@ public class CorrelationFrameService {
                         DependencyGraph dependencyGraph = DependencyGraph.parseGraphByFile(new File(Paths.dep_saved_path+"/"+correlation_selected));
                         //String nameCorr = CorrelationNameSelected.split("-")[1].split("\\.")[0];
                         JMeterAdaption.runJMeterAdaption(dependencyGraph,Paths.scripts_saved_path+"/"+filename+".jmx",correlation_selected);
-                        /*ArrayList<String> list = getFilesByNameAndPath(filename+"-",script_path);
                         correlationFrame.getScriptTable().setModel(
-                                new ScriptsTableModel(list)
-                        );*/
+                                new ScriptsTableModel(Utils.getFilesByNameAndPath(filename,Paths.scripts_saved_path))
+                        );
                         JOptionPane.showMessageDialog(null,"Script created!","Success",JOptionPane.INFORMATION_MESSAGE);
                     } catch (Exception e) {
                         System.out.println(e.toString());
@@ -194,7 +193,6 @@ public class CorrelationFrameService {
         };
 
     }
-
 
 
 

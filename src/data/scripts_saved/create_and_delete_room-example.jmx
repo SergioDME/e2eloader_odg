@@ -71,7 +71,7 @@
                                     
                         <boolProp name="Cookie.secure">false</boolProp>
                                     
-                        <longProp name="Cookie.expires">1728290942402</longProp>
+                        <longProp name="Cookie.expires">1732535559696</longProp>
                                     
                         <boolProp name="Cookie.path_specified">true</boolProp>
                                     
@@ -89,7 +89,7 @@
                                     
                         <boolProp name="Cookie.secure">false</boolProp>
                                     
-                        <longProp name="Cookie.expires">1728290942403</longProp>
+                        <longProp name="Cookie.expires">1732535559696</longProp>
                                     
                         <boolProp name="Cookie.path_specified">true</boolProp>
                                     
@@ -107,7 +107,7 @@
                                     
                         <boolProp name="Cookie.secure">false</boolProp>
                                     
-                        <longProp name="Cookie.expires">1728290942403</longProp>
+                        <longProp name="Cookie.expires">1732535559696</longProp>
                                     
                         <boolProp name="Cookie.path_specified">true</boolProp>
                                     
@@ -1168,10 +1168,10 @@
                     <hashTree/>
                             
                     <JSONPostProcessor enable="true" guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
-                        <stringProp name="JSONPostProcessor.referenceNames">rooms_4</stringProp>
-                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.rooms[0]</stringProp>
+                        <stringProp name="JSONPostProcessor.referenceNames">accessible_4;features</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.rooms[0].accessible;$.rooms[0].features</stringProp>
                         <stringProp name="JSONPostProcessor.match_numbers"/>
-                        <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
+                        <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND;NOT_FOUND</stringProp>
                     </JSONPostProcessor>
                     <hashTree/>
                 </hashTree>
@@ -1186,7 +1186,7 @@
                                                 
                                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                                                 
-                                <stringProp name="Argument.value">${rooms_4}</stringProp>
+                                <stringProp name="Argument.value">{"roomName":"102","type":"Twin","accessible":"${accessible_4}","description":"Please enter a description for this room","image":"https://www.mwtestconsultancy.co.uk/img/room1.jpg","roomPrice":"120","features":${features_4}}</stringProp>
                                                 
                                 <stringProp name="Argument.metadata">=</stringProp>
                                               
@@ -1806,7 +1806,7 @@
                               
                     <intProp name="HTTPSampler.port">8080</intProp>
                               
-                    <stringProp name="HTTPSampler.path">http://localhost:8080/room/${roomid_6}</stringProp>
+                    <stringProp name="HTTPSampler.path">http://localhost:8080/room/${roomid_5}</stringProp>
                               
                     <stringProp name="HTTPSampler.method">DELETE</stringProp>
                               
