@@ -26,8 +26,8 @@ public class JMeterLoadCreator {
     private static final String testplan = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
             "<jmeterTestPlan version=\"1.2\" properties=\"5.0\" jmeter=\"5.4.3\">\n" +
             "  <hashTree>\n" +
-            "    <TestPlan guiclass=\"TestPlanGui\" testclass=\"TestPlan\" testname=\"Test Plan (Sergio Di Meglio is helping you)\" enabled=\"true\">\n" +
-            "      <stringProp name=\"TestPlan.comments\">Script generated through my master thesis work  :D</stringProp>\n" +
+            "    <TestPlan guiclass=\"TestPlanGui\" testclass=\"TestPlan\" testname=\"Test Plan (E2ELoader is helping you)\" enabled=\"true\">\n" +
+            "      <stringProp name=\"TestPlan.comments\">Script generated through E2ELoader tool :D</stringProp>\n" +
             "      <boolProp name=\"TestPlan.functional_mode\">false</boolProp>\n" +
             "      <boolProp name=\"TestPlan.tearDown_on_shutdown\">true</boolProp>\n" +
             "      <boolProp name=\"TestPlan.serialize_threadgroups\">false</boolProp>\n" +
@@ -39,6 +39,40 @@ public class JMeterLoadCreator {
             "    <hashTree/>\n" +
             "  </hashTree>\n" +
             "</jmeterTestPlan>";
+
+
+    private static void addCookieManager(Document document,Element hashTree){
+        /*
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>*/
+        Element cookieManager = document.createElement("CookieManager");
+        cookieManager.setAttribute("guiclass","CookiePanel");
+        cookieManager.setAttribute("testclass","CookieManager");
+        cookieManager.setAttribute("testname","HTTP Cookie Manager");
+        cookieManager.setAttribute("enalbed","true");
+
+        Element collectionProp = document.createElement("collectionProp");
+        collectionProp.setAttribute("name","CookieManager.cookies");
+
+        Element boolProp1 = document.createElement("boolProp");
+        boolProp1.setAttribute("name","CookieManager.clearEachIteration");
+        boolProp1.setTextContent("true");
+
+        Element boolProp2 = document.createElement("boolProp");
+        boolProp2.setAttribute("name","CookieManager.controlledByThreadGroup");
+        boolProp2.setTextContent("false");
+
+        cookieManager.appendChild(collectionProp);
+        cookieManager.appendChild(boolProp1);
+        cookieManager.appendChild(boolProp2);
+
+        hashTree.appendChild(cookieManager);
+
+    }
 
     private static Document converStringToXMLDocument(String xml) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -67,6 +101,7 @@ public class JMeterLoadCreator {
         hashTreeJmeterTestPlan.appendChild(returnTestPlanNode(document));
         Element hashTree = document.createElement("hashTree");
         hashTreeJmeterTestPlan.appendChild(hashTree);
+        addCookieManager(document,hashTreeJmeterTestPlan);
         HashMap<String,ArrayList<UltimateThreadGroup>> threadGroupsMap = ConvertThreadGroupArrayToMap(threadsgrup);
         for(String filename : threadGroupsMap.keySet()) {
             addUltimateThreadGroup(document,hashTree,filename,threadGroupsMap.get(filename));
@@ -191,12 +226,12 @@ public class JMeterLoadCreator {
         Element TestPlan = doc.createElement("TestPlan");
         TestPlan.setAttribute("guiclass","TestPlanGui");
         TestPlan.setAttribute("testclass","TestPlan");
-        TestPlan.setAttribute("testname","Test Plan (Sergio Di Megio is helping you)");
+        TestPlan.setAttribute("testname","Test Plan (E2ELoader is helping you)");
         TestPlan.setAttribute("enabled","true");
 
         Element stringPropComments = doc.createElement("stringProp");
         stringPropComments.setAttribute("name","TestPlan.comments");
-        stringPropComments.setTextContent("Script generated through my master thesis work :D ");
+        stringPropComments.setTextContent("Script generated through E2ELoader tool :D ");
 
         Element boolPropFMode = doc.createElement("boolProp") ;
         boolPropFMode.setAttribute("name","TestPlan.functional_mode");

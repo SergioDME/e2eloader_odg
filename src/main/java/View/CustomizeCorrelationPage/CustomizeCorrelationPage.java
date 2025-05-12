@@ -32,7 +32,7 @@ public class CustomizeCorrelationPage extends JFrame {
     }
 
     public void enableTabByUrl () {
-        if(!this.correlatorHelperService.getDependencyGraph().nodes.get(current_request).request.getMethod().equals("POST")){
+        if(!( this.correlatorHelperService.getDependencyGraph().nodes.get(current_request).request.getMethod().equals("POST")||(this.correlatorHelperService.getDependencyGraph().nodes.get(current_request).request.getMethod().equals("PUT")))){
             tabbedPane1.setEnabledAt(2,false);
         }else{
             tabbedPane1.setEnabledAt(2,true);

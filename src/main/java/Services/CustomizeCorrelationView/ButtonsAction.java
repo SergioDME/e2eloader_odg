@@ -179,7 +179,6 @@ public class ButtonsAction {
                 );
 
                 try {
-
                     //from combo box (the same for all)
                     list_from = CustomCorrelationFrameService.getUrlswithMethods(
                             home.getCorrelatorHelperApp().dependencyGraph,

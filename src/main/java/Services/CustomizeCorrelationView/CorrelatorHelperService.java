@@ -66,7 +66,7 @@ public class CorrelatorHelperService {
                 //customizeCorrelationPage.setMapResponse(correlatorHelperApp.createMapResponse(file_har));
                 customizeCorrelationPage.getNameE2E().setText(CorrelatorHelperService.this.e2eName+"-");
                 customizeCorrelationPage.setUrl();
-                customizeCorrelationPage.getInfoRequestsLabel().setText(CorrelatorHelperService.this.e2eName+" consists of "+CorrelatorHelperService.this.har.getLog().getEntries().length+" requests");
+                customizeCorrelationPage.getInfoRequestsLabel().setText(CorrelatorHelperService.this.e2eName+" consists of "+((CorrelatorHelperService.this.har.getLog().getEntries().length))+" requests");
                 customizeCorrelationPage.enableTabByUrl();
                 customizeCorrelationPage.setReplacementTableModel();
                 try {

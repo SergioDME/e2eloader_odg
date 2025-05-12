@@ -1,1 +1,2877 @@
-{"nodes":[{"request":{"method":"GET","url":"http://localhost:8080/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"text/html,application/xhtml+xml,application/xml;q\u003d0.9,image/avif,image/webp,image/apng,*/*;q\u003d0.8,application/signed-exchange;v\u003db3;q\u003d0.7"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"__cypress.initial\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/__/"},{"name":"Sec-Fetch-Dest","value":"iframe"},{"name":"Sec-Fetch-Mode","value":"navigate"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"Sec-Fetch-User","value":"?1"},{"name":"Upgrade-Insecure-Requests","value":"1"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"X-Cypress-Is-AUT-Frame","value":"true"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"__cypress.initial","value":"true"}],"headersSize":0.0,"bodySize":0.0},"indexs":[0]},{"request":{"method":"POST","url":"http://localhost:8080/auth/validate","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"2"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":2.0,"postData":{"mimeType":"application/json","text":"{}","params":[]}},"indexs":[1]},{"request":{"method":"POST","url":"http://localhost:8080/auth/login","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"42"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":42.0,"postData":{"mimeType":"application/json","text":"{\"username\":\"admin\",\"password\":\"password\"}","params":[]}},"indexs":[2]},{"request":{"method":"GET","url":"http://localhost:8080/message/count","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[3]},{"request":{"method":"GET","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[4,6,9]},{"request":{"method":"POST","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"220"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":220.0,"postData":{"mimeType":"application/json","text":"{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}","params":[]}},"indexs":[5]},{"request":{"method":"GET","url":"http://localhost:8080/booking/?roomid\u003d2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[{"name":"roomid","value":"2"}],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[7]},{"request":{"method":"DELETE","url":"http://localhost:8080/room/2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[8]}],"edges":[{"name":"token","from":{"request":{"method":"POST","url":"http://localhost:8080/auth/login","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"42"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":42.0,"postData":{"mimeType":"application/json","text":"{\"username\":\"admin\",\"password\":\"password\"}","params":[]}},"indexs":[2]},"to":{"request":{"method":"GET","url":"http://localhost:8080/message/count","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[3]},"dependency":{"value":"zzwVcLehrToM29bd","name":"token","from_set_cookie":true},"type":"cookie","from_index":-1,"to_index":-1},{"name":"token","from":{"request":{"method":"POST","url":"http://localhost:8080/auth/login","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"42"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":42.0,"postData":{"mimeType":"application/json","text":"{\"username\":\"admin\",\"password\":\"password\"}","params":[]}},"indexs":[2]},"to":{"request":{"method":"GET","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[4,6,9]},"dependency":{"value":"zzwVcLehrToM29bd","name":"token","from_set_cookie":true},"type":"cookie","from_index":-1,"to_index":-1},{"name":"token","from":{"request":{"method":"POST","url":"http://localhost:8080/auth/login","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"42"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":42.0,"postData":{"mimeType":"application/json","text":"{\"username\":\"admin\",\"password\":\"password\"}","params":[]}},"indexs":[2]},"to":{"request":{"method":"POST","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"220"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":220.0,"postData":{"mimeType":"application/json","text":"{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}","params":[]}},"indexs":[5]},"dependency":{"value":"zzwVcLehrToM29bd","name":"token","from_set_cookie":true},"type":"cookie","from_index":-1,"to_index":-1},{"primitive":true,"name":"accessible","from":{"request":{"method":"GET","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[4,6,9]},"to":{"request":{"method":"POST","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"220"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":220.0,"postData":{"mimeType":"application/json","text":"{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}","params":[]}},"indexs":[5]},"dependency":{"value":"true","name":"accessible","xpath":"$.rooms[0].accessible","from_set_cookie":false},"type":"bodyjson","from_index":4,"to_index":5},{"primitive":false,"name":"features","structuredObject":{"name":"features","value":"[\"TV\",\"WiFi\",\"Safe\"]","xpath":"$.rooms[0].features","objects":[{"value":"TV","name":"features","xpath":"$.rooms[0].features.features[0]","from_set_cookie":false},{"value":"WiFi","name":"features","xpath":"$.rooms[0].features.features[1]","from_set_cookie":false},{"value":"Safe","name":"features","xpath":"$.rooms[0].features.features[2]","from_set_cookie":false}],"schemaString":"\"{\\n  \\\"type\\\": \\\"array\\\",\\n  \\\"items\\\": {\\n    \\\"type\\\": \\\"string\\\"\\n  }\\n}\""},"from":{"request":{"method":"GET","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[4,6,9]},"to":{"request":{"method":"POST","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"220"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":220.0,"postData":{"mimeType":"application/json","text":"{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}","params":[]}},"indexs":[5]},"type":"bodyjson","from_index":4,"to_index":5},{"name":"token","from":{"request":{"method":"POST","url":"http://localhost:8080/auth/login","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"42"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":42.0,"postData":{"mimeType":"application/json","text":"{\"username\":\"admin\",\"password\":\"password\"}","params":[]}},"indexs":[2]},"to":{"request":{"method":"GET","url":"http://localhost:8080/booking/?roomid\u003d2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[{"name":"roomid","value":"2"}],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[7]},"dependency":{"value":"zzwVcLehrToM29bd","name":"token","from_set_cookie":true},"type":"cookie","from_index":-1,"to_index":-1},{"query_param_name":"roomid","from":{"request":{"method":"POST","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"220"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":220.0,"postData":{"mimeType":"application/json","text":"{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}","params":[]}},"indexs":[5]},"to":{"request":{"method":"GET","url":"http://localhost:8080/booking/?roomid\u003d2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[{"name":"roomid","value":"2"}],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[7]},"dependency":{"value":"2","name":"roomid","xpath":"$.roomid","from_set_cookie":false},"type":"queryparam","from_index":5,"to_index":7},{"query_param_name":"roomid","from":{"request":{"method":"GET","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[4,6,9]},"to":{"request":{"method":"GET","url":"http://localhost:8080/booking/?roomid\u003d2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[{"name":"roomid","value":"2"}],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[7]},"dependency":{"value":"2","name":"roomid","xpath":"$.rooms[1].roomid","from_set_cookie":false},"type":"queryparam","from_index":6,"to_index":7},{"name":"token","from":{"request":{"method":"POST","url":"http://localhost:8080/auth/login","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"42"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"}],"headersSize":0.0,"bodySize":42.0,"postData":{"mimeType":"application/json","text":"{\"username\":\"admin\",\"password\":\"password\"}","params":[]}},"indexs":[2]},"to":{"request":{"method":"DELETE","url":"http://localhost:8080/room/2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[8]},"dependency":{"value":"zzwVcLehrToM29bd","name":"token","from_set_cookie":true},"type":"cookie","from_index":-1,"to_index":-1},{"subPath":"2","from":{"request":{"method":"POST","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Content-Length","value":"220"},{"name":"Content-Type","value":"application/json"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":220.0,"postData":{"mimeType":"application/json","text":"{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}","params":[]}},"indexs":[5]},"to":{"request":{"method":"DELETE","url":"http://localhost:8080/room/2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[8]},"dependency":{"value":"2","name":"roomid","xpath":"$.roomid","from_set_cookie":false},"type":"url","from_index":5,"to_index":8},{"subPath":"2","from":{"request":{"method":"GET","url":"http://localhost:8080/room/","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[4,6,9]},"to":{"request":{"method":"DELETE","url":"http://localhost:8080/room/2","httpVersion":"http/1.1","headers":[{"name":"Accept","value":"application/json, text/plain, */*"},{"name":"Accept-Encoding","value":"gzip, deflate, br"},{"name":"Accept-Language","value":"it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"},{"name":"Cache-Control","value":"no-cache"},{"name":"Cookie","value":"banner\u003dtrue; token\u003dzzwVcLehrToM29bd"},{"name":"Host","value":"localhost:8080"},{"name":"Origin","value":"http://localhost:8080"},{"name":"Pragma","value":"no-cache"},{"name":"Proxy-Connection","value":"keep-alive"},{"name":"Referer","value":"http://localhost:8080/"},{"name":"Sec-Fetch-Dest","value":"empty"},{"name":"Sec-Fetch-Mode","value":"cors"},{"name":"Sec-Fetch-Site","value":"same-origin"},{"name":"User-Agent","value":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"},{"name":"sec-ch-ua","value":"\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""},{"name":"sec-ch-ua-mobile","value":"?0"},{"name":"sec-ch-ua-platform","value":"\"Linux\""}],"queryString":[],"cookies":[{"name":"banner","value":"true"},{"name":"token","value":"zzwVcLehrToM29bd"}],"headersSize":0.0,"bodySize":0.0},"indexs":[8]},"dependency":{"value":"2","name":"roomid","xpath":"$.rooms[1].roomid","from_set_cookie":false},"type":"url","from_index":6,"to_index":8}]}
+{
+  "nodes": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "text/html,application/xhtml+xml,application/xml;q\u003d0.9,image/avif,image/webp,image/apng,*/*;q\u003d0.8,application/signed-exchange;v\u003db3;q\u003d0.7"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Cookie",
+            "value": "__cypress.initial\u003dtrue"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/__/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "iframe"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "navigate"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "Sec-Fetch-User",
+            "value": "?1"
+          },
+          {
+            "name": "Upgrade-Insecure-Requests",
+            "value": "1"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "X-Cypress-Is-AUT-Frame",
+            "value": "true"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "__cypress.initial",
+            "value": "true"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 0.0
+      },
+      "indexs": [
+        0
+      ]
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/auth/validate",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Content-Length",
+            "value": "2"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Origin",
+            "value": "http://localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 2.0,
+        "postData": {
+          "mimeType": "application/json",
+          "text": "{}",
+          "params": []
+        }
+      },
+      "indexs": [
+        1
+      ]
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/auth/login",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Content-Length",
+            "value": "42"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Origin",
+            "value": "http://localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 42.0,
+        "postData": {
+          "mimeType": "application/json",
+          "text": "{\"username\":\"admin\",\"password\":\"password\"}",
+          "params": []
+        }
+      },
+      "indexs": [
+        2
+      ]
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/message/count",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          },
+          {
+            "name": "token",
+            "value": "zzwVcLehrToM29bd"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 0.0
+      },
+      "indexs": [
+        3
+      ]
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/room/",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          },
+          {
+            "name": "token",
+            "value": "zzwVcLehrToM29bd"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 0.0
+      },
+      "indexs": [
+        4,
+        6,
+        9
+      ]
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/room/",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Content-Length",
+            "value": "220"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Origin",
+            "value": "http://localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          },
+          {
+            "name": "token",
+            "value": "zzwVcLehrToM29bd"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 220.0,
+        "postData": {
+          "mimeType": "application/json",
+          "text": "{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}",
+          "params": []
+        }
+      },
+      "indexs": [
+        5
+      ]
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/booking/?roomid\u003d2",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [
+          {
+            "name": "roomid",
+            "value": "2"
+          }
+        ],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          },
+          {
+            "name": "token",
+            "value": "zzwVcLehrToM29bd"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 0.0
+      },
+      "indexs": [
+        7
+      ]
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/room/2",
+        "httpVersion": "http/1.1",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "name": "Accept-Encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "name": "Accept-Language",
+            "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+          },
+          {
+            "name": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "name": "Cookie",
+            "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+          },
+          {
+            "name": "Host",
+            "value": "localhost:8080"
+          },
+          {
+            "name": "Origin",
+            "value": "http://localhost:8080"
+          },
+          {
+            "name": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "name": "Proxy-Connection",
+            "value": "keep-alive"
+          },
+          {
+            "name": "Referer",
+            "value": "http://localhost:8080/"
+          },
+          {
+            "name": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "name": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "name": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "name": "User-Agent",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "sec-ch-ua",
+            "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+          },
+          {
+            "name": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "name": "sec-ch-ua-platform",
+            "value": "\"Linux\""
+          }
+        ],
+        "queryString": [],
+        "cookies": [
+          {
+            "name": "banner",
+            "value": "true"
+          },
+          {
+            "name": "token",
+            "value": "zzwVcLehrToM29bd"
+          }
+        ],
+        "headersSize": 0.0,
+        "bodySize": 0.0
+      },
+      "indexs": [
+        8
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "name": "token",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/auth/login",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "42"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 42.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"username\":\"admin\",\"password\":\"password\"}",
+            "params": []
+          }
+        },
+        "indexs": [
+          2
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/message/count",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          3
+        ]
+      },
+      "dependency": {
+        "value": "zzwVcLehrToM29bd",
+        "name": "token",
+        "from_set_cookie": true
+      },
+      "type": "cookie",
+      "from_index": -1,
+      "to_index": -1
+    },
+    {
+      "name": "token",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/auth/login",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "42"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 42.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"username\":\"admin\",\"password\":\"password\"}",
+            "params": []
+          }
+        },
+        "indexs": [
+          2
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          4,
+          6,
+          9
+        ]
+      },
+      "dependency": {
+        "value": "zzwVcLehrToM29bd",
+        "name": "token",
+        "from_set_cookie": true
+      },
+      "type": "cookie",
+      "from_index": -1,
+      "to_index": -1
+    },
+    {
+      "name": "token",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/auth/login",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "42"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 42.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"username\":\"admin\",\"password\":\"password\"}",
+            "params": []
+          }
+        },
+        "indexs": [
+          2
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "220"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 220.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}",
+            "params": []
+          }
+        },
+        "indexs": [
+          5
+        ]
+      },
+      "dependency": {
+        "value": "zzwVcLehrToM29bd",
+        "name": "token",
+        "from_set_cookie": true
+      },
+      "type": "cookie",
+      "from_index": -1,
+      "to_index": -1
+    },
+    {
+      "primitive": true,
+      "name": "accessible",
+      "from": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          4,
+          6,
+          9
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "220"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 220.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}",
+            "params": []
+          }
+        },
+        "indexs": [
+          5
+        ]
+      },
+      "dependency": {
+        "value": "true",
+        "name": "accessible",
+        "xpath": "$.rooms[0].accessible",
+        "from_set_cookie": false
+      },
+      "type": "bodyjson",
+      "from_index": 4,
+      "to_index": 5
+    },
+    {
+      "primitive": false,
+      "name": "features",
+      "structuredObject": {
+        "name": "features",
+        "value": "[\"TV\",\"WiFi\",\"Safe\"]",
+        "xpath": "$.rooms[0].features",
+        "objects": [
+          {
+            "value": "TV",
+            "name": "features",
+            "xpath": "$.rooms[0].features.features[0]",
+            "from_set_cookie": false
+          },
+          {
+            "value": "WiFi",
+            "name": "features",
+            "xpath": "$.rooms[0].features.features[1]",
+            "from_set_cookie": false
+          },
+          {
+            "value": "Safe",
+            "name": "features",
+            "xpath": "$.rooms[0].features.features[2]",
+            "from_set_cookie": false
+          }
+        ],
+        "schemaString": "\"{\\n  \\\"type\\\": \\\"array\\\",\\n  \\\"items\\\": {\\n    \\\"type\\\": \\\"string\\\"\\n  }\\n}\""
+      },
+      "from": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          4,
+          6,
+          9
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "220"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 220.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}",
+            "params": []
+          }
+        },
+        "indexs": [
+          5
+        ]
+      },
+      "type": "bodyjson",
+      "from_index": 4,
+      "to_index": 5
+    },
+    {
+      "name": "token",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/auth/login",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "42"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 42.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"username\":\"admin\",\"password\":\"password\"}",
+            "params": []
+          }
+        },
+        "indexs": [
+          2
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/booking/?roomid\u003d2",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [
+            {
+              "name": "roomid",
+              "value": "2"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          7
+        ]
+      },
+      "dependency": {
+        "value": "zzwVcLehrToM29bd",
+        "name": "token",
+        "from_set_cookie": true
+      },
+      "type": "cookie",
+      "from_index": -1,
+      "to_index": -1
+    },
+    {
+      "query_param_name": "roomid",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "220"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 220.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}",
+            "params": []
+          }
+        },
+        "indexs": [
+          5
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/booking/?roomid\u003d2",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [
+            {
+              "name": "roomid",
+              "value": "2"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          7
+        ]
+      },
+      "dependency": {
+        "value": "2",
+        "name": "roomid",
+        "xpath": "$.roomid",
+        "from_set_cookie": false
+      },
+      "type": "queryparam",
+      "from_index": 5,
+      "to_index": 7
+    },
+    {
+      "name": "token",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/auth/login",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "42"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 42.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"username\":\"admin\",\"password\":\"password\"}",
+            "params": []
+          }
+        },
+        "indexs": [
+          2
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/room/2",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          8
+        ]
+      },
+      "dependency": {
+        "value": "zzwVcLehrToM29bd",
+        "name": "token",
+        "from_set_cookie": true
+      },
+      "type": "cookie",
+      "from_index": -1,
+      "to_index": -1
+    },
+    {
+      "subPath": "2",
+      "from": {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Length",
+              "value": "220"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 220.0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"roomName\":\"102\",\"type\":\"Twin\",\"accessible\":\"true\",\"description\":\"Please enter a description for this room\",\"image\":\"https://www.mwtestconsultancy.co.uk/img/room1.jpg\",\"roomPrice\":\"120\",\"features\":[\"WiFi\",\"TV\",\"Radio\"]}",
+            "params": []
+          }
+        },
+        "indexs": [
+          5
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/room/2",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          8
+        ]
+      },
+      "dependency": {
+        "value": "2",
+        "name": "roomid",
+        "xpath": "$.roomid",
+        "from_set_cookie": false
+      },
+      "type": "url",
+      "from_index": 5,
+      "to_index": 8
+    },
+    {
+      "subPath": "2",
+      "from": {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/room/",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          4,
+          6,
+          9
+        ]
+      },
+      "to": {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/room/2",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "it-IT,it;q\u003d0.9,en-US;q\u003d0.8,en;q\u003d0.7"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cookie",
+              "value": "banner\u003dtrue; token\u003dzzwVcLehrToM29bd"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Origin",
+              "value": "http://localhost:8080"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Proxy-Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:8080/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "same-origin"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v\u003d\"123\", \"Not:A-Brand\";v\u003d\"8\", \"Chromium\";v\u003d\"123\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Linux\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "banner",
+              "value": "true"
+            },
+            {
+              "name": "token",
+              "value": "zzwVcLehrToM29bd"
+            }
+          ],
+          "headersSize": 0.0,
+          "bodySize": 0.0
+        },
+        "indexs": [
+          8
+        ]
+      },
+      "dependency": {
+        "value": "2",
+        "name": "roomid",
+        "xpath": "$.rooms[1].roomid",
+        "from_set_cookie": false
+      },
+      "type": "url",
+      "from_index": 6,
+      "to_index": 8
+    }
+  ]
+}

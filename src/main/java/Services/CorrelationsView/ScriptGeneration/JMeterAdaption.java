@@ -314,7 +314,7 @@ public class JMeterAdaption {
                     if ("".equals(variable_names)) {
                         variable_names = atomicObject.name+"_"+index;
                     } else {
-                        variable_names = variable_names + ";" + atomicObject.name;
+                        variable_names = variable_names + ";" + atomicObject.name+"_"+index;
                     }
 
                     if ("".equals(path_expression)) {
@@ -335,7 +335,7 @@ public class JMeterAdaption {
                 if ("".equals(variable_names)) {
                     variable_names = structuredObject.name+"_"+index;
                 } else {
-                    variable_names = variable_names + ";" + structuredObject.name;
+                    variable_names = variable_names + ";" + structuredObject.name+"_"+index;
                 }
 
                 if ("".equals(path_expression)) {
@@ -781,7 +781,6 @@ public class JMeterAdaption {
                     return edgeBodyJSON;
                 }
             }
-
         }
         return null;
     }
@@ -815,11 +814,13 @@ public class JMeterAdaption {
             URI uri = new URI(originalUrl);
             String path = uri.getPath();
             String[] subpaths = path.split("/");
+            int changed =0;
             for (Edge edge : dependencies) {
                 if (edge.getClass().equals(EdgeUrl.class)) {
                     EdgeUrl edgeUrl = (EdgeUrl) edge;
                     for (int i = 0; i < subpaths.length; i++) {
                         if (subpaths[i].equals(edgeUrl.subPath)) {
+                            changed=1;
                             if(!edgeUrl.dependency.value.equals("manually_inserted") && !edgeUrl.dependency.value.equals("manually_csv"))
                                 subpaths[i] = "${" + edgeUrl.dependency.name+"_"+edgeUrl.from_index+"}";
                             else
@@ -830,6 +831,7 @@ public class JMeterAdaption {
                     }
                 }
             }
+            if (changed==0){return;}
             // Ricostruisci il percorso
             StringBuilder newPath = new StringBuilder();
             for (String subPath : subpaths) {
