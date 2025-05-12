@@ -10,7 +10,7 @@ public class JsonSchemaGenerator {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, json);
         Request request = new Request.Builder()
-                .url("http://localhost:3000/schema")
+                .url("http://localhost:4000/schema")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .build();

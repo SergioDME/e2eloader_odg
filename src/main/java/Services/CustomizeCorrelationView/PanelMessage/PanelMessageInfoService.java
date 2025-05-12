@@ -44,19 +44,19 @@ public class PanelMessageInfoService {
 
                 pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                         "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                        "request n° " + (frame.getCurrent_request()) + " is equals to the parameter " + table.getValueAt(row, 4) +
+                        "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" is equals to the parameter " + table.getValueAt(row, 4) +
                         "of the " + table.getValueAt(row, 3) + " response,\n which is the request n° " + table.getValueAt(row, 2));
             }else {
 
                 if(table.getValueAt(row,3).equals("manually_inserted")){
                     pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                             "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                            "request n° " + (frame.getCurrent_request()) + " was manually set to the value " + table.getValueAt(row, 4));
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" was manually set to the value " + table.getValueAt(row, 4));
                 }else {
                     CSVNode csvNode = (CSVNode)checkableItem.getEdge().from;
                     pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                             "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                            "request n° " + (frame.getCurrent_request()) + " was manually set to the parameter " + csvNode.getVariablesName()+
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" was manually set to the parameter " + csvNode.getVariablesName()+
                             " from  " + table.getValueAt(row, 3));
                 }
             }
@@ -67,12 +67,12 @@ public class PanelMessageInfoService {
                 if (edgeCookie.getDependency().from_set_cookie) {
                     pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                             "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                            "request n° " + (frame.getCurrent_request()) + " is equals to the parameter " + table.getValueAt(row, 4) +
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" is equals to the parameter " + table.getValueAt(row, 4) +
                             " setted as cookie in the response of " + table.getValueAt(row, 3) + " ,\n which is the request n° " + table.getValueAt(row, 2));
                 } else {
                     pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                             "of  " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                            "request n° " + (frame.getCurrent_request()) + " is equals to the parameter " + table.getValueAt(row, 4) +
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" is equals to the parameter " + table.getValueAt(row, 4) +
                             "of the " + table.getValueAt(row, 3) + " response,\n which is the request n° " + table.getValueAt(row, 2));
                 }
             }else
@@ -80,12 +80,12 @@ public class PanelMessageInfoService {
                 if(table.getValueAt(row,3).equals("manually_inserted")){
                     pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                             "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                            "request n° " + (frame.getCurrent_request()) + " was manually set to the value " + table.getValueAt(row, 4));
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" was manually set to the value " + table.getValueAt(row, 4));
                 }else {
                     CSVNode csvNode = (CSVNode)checkableItem.getEdge().from;
                     pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
                             "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                            "request n° " + (frame.getCurrent_request()) + " was manually set to the parameter " + csvNode.getVariablesName()+
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" was manually set to the parameter " + csvNode.getVariablesName()+
                             " from  " + table.getValueAt(row, 3));
                 }
             }
@@ -206,7 +206,7 @@ public class PanelMessageInfoService {
         String subpath = table.getValueAt(row,1).toString();
         pm.getDescriptionTextArea().setText(" The value " +subpath+ " in  the " + type + " \n " +
                     "of  " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl()+ " \n " +
-                    "request n°" + (frame.getCurrent_request()) + " is equals to the parameter " + to_name + " \n " +
+                    "request n°" + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString() + " is equals to the parameter " + to_name + " \n " +
                     "of the " + table.getValueAt(row, 3) + " response,\n which is the request n° " + table.getValueAt(row, 2));
 
         //                    +", the new url will be "+table.getValueAt(row,4));
