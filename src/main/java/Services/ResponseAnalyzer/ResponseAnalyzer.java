@@ -23,6 +23,8 @@ public class ResponseAnalyzer {
     public ResponseAnalyzer(){}
     public ResponseUnstructured getUnstructuredResponse(String json_response) {
         ResponseUnstructured responseUnstructured = new ResponseUnstructured();
+        StructuredObject structuredObject = new StructuredObject("All",json_response,"$");
+        responseUnstructured.getObjects().add(structuredObject);
         if(json_response.startsWith("{")) {
             JsonObject jsonObject = new JsonParser().parse(json_response).getAsJsonObject();
             visitNode(jsonObject, "$",  responseUnstructured.getObjects());
@@ -42,7 +44,12 @@ public class ResponseAnalyzer {
                 JsonElement value = node.get(key);
                 if(value.isJsonPrimitive() || value.isJsonNull()) {
                    // atomic node
-                    objectList.add(new AtomicObject(value.getAsString(),key,String.format("%s.%s", xPath,key)));
+                    if(!value.isJsonNull()){
+                        objectList.add(new AtomicObject(value.getAsString(),key,String.format("%s.%s", xPath,key)));
+                    }else{
+                        //objectList.add(new AtomicObject(value.getAsString(),key,String.format("%s.%s", xPath,key)));
+                    }
+
                 } else if (value.isJsonObject()) {
                     StructuredObject structuredObject = null;
                     structuredObject = new StructuredObject(key,value.getAsJsonObject().toString(),String.format("%s.%s", xPath,key));

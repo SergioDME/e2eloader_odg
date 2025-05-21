@@ -83,7 +83,7 @@ public class BodyDependency {
             StructuredObject structuredObject = (StructuredObject) response;
             String json_schema = JsonSchemaGenerator.generateJSONSchema(object.toString());
             if (json_schema.equals(structuredObject.getSchemaString())) {
-                boolean equals_elements = false;
+                //boolean equals_elements = false;
                /* if(object.getClass() == JsonObject.class){
                     JsonObject structured_json_obj = new JsonParser().parse(structuredObject.getValue()).getAsJsonObject();
                     if (structured_json_obj.equals(object)) {
@@ -97,11 +97,14 @@ public class BodyDependency {
                 }
                 if(equals_elements){
                  */
-                    EdgeBodyJSON edgeBodyJSON = new EdgeBodyJSON(false, name, from,to, null, structuredObject);
-                    dependencyGraph.edges.add(edgeBodyJSON);
-                    edgeBodyJSON.setTo_index(req_index);
-                    edgeBodyJSON.setFrom_index(from_index);
-                    return true;
+                EdgeBodyJSON edgeBodyJSON = new EdgeBodyJSON(false, name, from,to, null, structuredObject);
+                if(((StructuredObject) response).name.equals("All")){
+                    edgeBodyJSON.setName("All");
+                }
+                dependencyGraph.edges.add(edgeBodyJSON);
+                edgeBodyJSON.setTo_index(req_index);
+                edgeBodyJSON.setFrom_index(from_index);
+                return true;
                 //}
             }
             for (Object o : structuredObject.getObjects()) {
