@@ -9,7 +9,7 @@ import java.net.URI;
 
 public class AtomicDependencyValidator {
 
-    private static final float lcs_deadline =0.45f;
+    private static final float lcs_deadline =0.44f;
 
     public String porter_stamming(String input)
     {
@@ -106,7 +106,7 @@ public class AtomicDependencyValidator {
             String possible_fatherchild_name [] = id_complention(atomic_name,request);
             for(int i=0;i<possible_fatherchild_name.length;i++){
                 String to_name_stamm = porter_stamming(to_lower_name);
-                String atomic_name_stamm = possible_fatherchild_name[i];
+                String atomic_name_stamm = porter_stamming(possible_fatherchild_name[i]);
                 //int dist =  LevenshteinDistance.dist(to_name_stamm.toCharArray(),atomic_name_stamm.toCharArray());
                 //if(dist <=5){
                  float lcs = LCS.LCSubStr(to_name_stamm.toCharArray(),atomic_name_stamm.toCharArray(),to_name_stamm.length(),atomic_name_stamm.length());
@@ -121,35 +121,37 @@ public class AtomicDependencyValidator {
 
     public boolean general_atomic_comparioson(AtomicObject atomicObject, String to_value, String to_name, StructuredObject father,Request request){
         //common case
-        if(atomicObject.getValue().equals(to_value)){
+        if(atomicObject.getValue().equals(to_value)) {
+            if (to_name != null) {
             String to_lower_name = lower_case(to_name);
             String atomic_name = lower_case(atomicObject.getName());
-            if(father != null && !father.getName().equals("")){
-                atomic_name = id_complention(atomic_name,porter_stamming(father.getName().toLowerCase()));
+            if (father != null && !father.getName().equals("")) {
+                atomic_name = id_complention(atomic_name, porter_stamming(father.getName().toLowerCase()));
                 String to_name_stamm = porter_stamming(to_lower_name);
                 //String atomic_name_stamm = porter_stamming(atomic_name);
                 //int dist =  LevenshteinDistance.dist(to_name_stamm.toCharArray(),atomic_name_stamm.toCharArray());
                 //if(dist <=5){
-                float lcs = LCS.LCSubStr(to_name_stamm.toCharArray(),atomic_name.toCharArray(),to_name_stamm.length(),atomic_name.length());
-                if(lcs >= lcs_deadline){
+                float lcs = LCS.LCSubStr(to_name_stamm.toCharArray(), atomic_name.toCharArray(), to_name_stamm.length(), atomic_name.length());
+                if (lcs >= lcs_deadline) {
                     //System.out.println(atomicObject);
                     return true;
                 }
-            }else{
-                String possible_fatherchild_name [] = id_complention(atomic_name,request);
-                for(int i=0;i<possible_fatherchild_name.length;i++){
+            } else {
+                String possible_fatherchild_name[] = id_complention(atomic_name, request);
+                for (int i = 0; i < possible_fatherchild_name.length; i++) {
                     String to_name_stamm = porter_stamming(to_lower_name);
-                    String atomic_name_stamm = possible_fatherchild_name[i];
+                    String atomic_name_stamm = porter_stamming(possible_fatherchild_name[i]);
                     //int dist =  LevenshteinDistance.dist(to_name_stamm.toCharArray(),atomic_name_stamm.toCharArray());
                     //if(dist <=5){
-                    float lcs = LCS.LCSubStr(to_name_stamm.toCharArray(),atomic_name_stamm.toCharArray(),to_name_stamm.length(),atomic_name_stamm.length());
-                    if(lcs >=lcs_deadline){
+                    float lcs = LCS.LCSubStr(to_name_stamm.toCharArray(), atomic_name_stamm.toCharArray(), to_name_stamm.length(), atomic_name_stamm.length());
+                    if (lcs >= lcs_deadline) {
                         //System.out.println(atomicObject);
                         return true;
                     }
                 }
             }
-           return  false;
+        }
+            return  false;
         }
         return false;
     }

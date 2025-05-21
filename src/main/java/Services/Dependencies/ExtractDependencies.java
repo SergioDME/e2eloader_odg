@@ -82,7 +82,12 @@ public class ExtractDependencies {
         return  dependencyGraph;
     }
 
-
+    public static void main(String []args) throws IOException {
+        File har_file = new File("/home/sergio/IdeaProjects/powerve-e2e-test/cypress/e2e/hars/login.har");
+        ExtractDependencies extractDependencies = new ExtractDependencies(har_file);
+        extractDependencies.analyze_responses();
+        DependencyGraph graph = extractDependencies.build_dependencies_graph();
+    }
 
 
 

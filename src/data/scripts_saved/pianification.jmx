@@ -1,0 +1,1707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.4" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Blazemeter test plan" enabled="true">
+      <stringProp name="TestPlan.comments">This test plan was created by the BlazeMeter converter v.${project.version}. Please contact support@blazemeter.com for further support.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager">
+        <collectionProp name="HeaderManager.headers"/>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </Arguments>
+      <hashTree/>
+      <DNSCacheManager guiclass="DNSCachePanel" testclass="DNSCacheManager" testname="DNS Cache Manager" enabled="true">
+        <collectionProp name="DNSCacheManager.servers"/>
+        <boolProp name="DNSCacheManager.clearEachIteration">true</boolProp>
+      </DNSCacheManager>
+      <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager">
+        <collectionProp name="AuthManager.auth_list"/>
+      </AuthManager>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager">
+        <boolProp name="clearEachIteration">true</boolProp>
+        <boolProp name="useExpires">false</boolProp>
+      </CacheManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <longProp name="ThreadGroup.duration">0</longProp>
+        <longProp name="ThreadGroup.delay">0</longProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/ng/it/login" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">ng/it/login</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/__/</stringProp>
+              </elementProp>
+              <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>0.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">0.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/oauth/token" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">{&quot;scope&quot;:&quot;*&quot;,&quot;username&quot;:&quot;dev@powerve.cloud&quot;,&quot;password&quot;:&quot;Fabio2019&quot;,&quot;client_secret&quot;:&quot;G80Zyyqx2FbVLQaOfW9Qk2OMHVwfLql9YoV7abr4&quot;,&quot;client_id&quot;:&quot;2&quot;,&quot;grant_type&quot;:&quot;password&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">oauth/token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/login</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[2]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>1326.4</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">2652.8</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/user" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/user</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/login</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[3]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>317.6</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">635.2</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/users/32/cloudLogin" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="updateLogin" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">updateLogin</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="timeSpentIncrementS" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">timeSpentIncrementS</stringProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/users/32/cloudLogin</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/login</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded;charset=UTF-8</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[4]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>0.4</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">0.8</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjects/fetchWhere?orderBy=completedDateTime&amp;orderByDir=desc&amp;page=1&amp;perPage=12" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="name" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">name</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="orderBy" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">orderBy</stringProp>
+                <stringProp name="Argument.value">completedDateTime</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="projectStatus" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">projectStatus</stringProp>
+                <stringProp name="Argument.value">COMPLETED</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="perPage" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">perPage</stringProp>
+                <stringProp name="Argument.value">12</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="page" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">page</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="orderByDir" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">orderByDir</stringProp>
+                <stringProp name="Argument.value">desc</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjects/fetchWhere</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded;charset=UTF-8</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[5]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>43.2</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">86.4</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjects/fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">[&quot;7d4ac883-d154-4f0a-ac1d-6d84f4675207&quot;,&quot;4836209c-0d33-4c40-b59d-dd463e063ebf&quot;,&quot;c1ed40ef-00af-44a7-8532-9be219c73f86&quot;,&quot;8e9c5ed1-292f-4b62-931c-0c50f2ce6aad&quot;,&quot;e4baec9b-ac2c-442c-b178-2ecf395be568&quot;,&quot;ad89430c-7d90-40cc-a193-5a0e419cba8f&quot;,&quot;8b1364d3-460e-46af-96b8-bbcfdc684300&quot;,&quot;e266daa2-be0d-4f15-ba8b-f0777d4eaf10&quot;,&quot;5f3a4e41-6534-4fcb-93a5-d13983a686bf&quot;,&quot;b8fc9494-31e5-4bfa-8706-5a66d402e1dc&quot;,&quot;cefeebbe-089e-43ae-8550-573921891634&quot;,&quot;512edf6f-e403-46fe-b2d2-beb1493a8456&quot;]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjects/fetch</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[6]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>284.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">568.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjectModels" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjectModels</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[7]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>238.4</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">476.8</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/trainpads" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/trainpads</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[8]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>2.4000000000000004</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">4.800000000000001</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjects/fetchWhere?orderBy=creationDateTime&amp;orderByDir=desc" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="orderBy" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">orderBy</stringProp>
+                <stringProp name="Argument.value">creationDateTime</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="projectStatus" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">projectStatus</stringProp>
+                <stringProp name="Argument.value">NEW</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="orderByDir" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">orderByDir</stringProp>
+                <stringProp name="Argument.value">desc</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjects/fetchWhere</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded;charset=UTF-8</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[9]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>356.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">712.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/trainpads" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/trainpads</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[10]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>1.6</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">3.2</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/trainpads/fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="[&quot;6723162f-bdf0-4524-9ca1-6063c051f2f9&quot;,&quot;1dfc1a83-3fac-49e4-9973-5511c80a0941&quot;,&quot;74b5d7e6-4901-42ba-a140-64153046def1&quot;,&quot;2da878a4-fa0a-43c2-b95c-9961361b17c9&quot;,&quot;50c0f935-61c3-4ff6-be14-6f6a4e8be539&quot;,&quot;99b38e8e-e8d7-457f-bd45-57e9e344363d&quot;,&quot;b3c6e01b-df9e-4f7a-95ae-7b0402fc6fef&quot;,&quot;fc7834a3-ee21-4723-9fc8-0c58f4514f34&quot;,&quot;5b8ea125-b0f6-4b34-9181-cab76a00fb19&quot;,&quot;a070d7ed-301f-4ab6-94e7-f1d372021096&quot;,&quot;e075a6a8-65a4-4b00-9131-4e96e18bed0f&quot;,&quot;bc718bc0-3272-4acf-a5ee-c83b21949af8&quot;]" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">[&quot;6723162f-bdf0-4524-9ca1-6063c051f2f9&quot;,&quot;1dfc1a83-3fac-49e4-9973-5511c80a0941&quot;,&quot;74b5d7e6-4901-42ba-a140-64153046def1&quot;,&quot;2da878a4-fa0a-43c2-b95c-9961361b17c9&quot;,&quot;50c0f935-61c3-4ff6-be14-6f6a4e8be539&quot;,&quot;99b38e8e-e8d7-457f-bd45-57e9e344363d&quot;,&quot;b3c6e01b-df9e-4f7a-95ae-7b0402fc6fef&quot;,&quot;fc7834a3-ee21-4723-9fc8-0c58f4514f34&quot;,&quot;5b8ea125-b0f6-4b34-9181-cab76a00fb19&quot;,&quot;a070d7ed-301f-4ab6-94e7-f1d372021096&quot;,&quot;e075a6a8-65a4-4b00-9131-4e96e18bed0f&quot;,&quot;bc718bc0-3272-4acf-a5ee-c83b21949af8&quot;]</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/trainpads/fetch</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[11]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>38.400000000000006</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">76.80000000000001</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/74b5d7e6-4901-42ba-a140-64153046def1/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/74b5d7e6-4901-42ba-a140-64153046def1/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[12]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>183.60000000000002</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">367.20000000000005</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/2da878a4-fa0a-43c2-b95c-9961361b17c9/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/2da878a4-fa0a-43c2-b95c-9961361b17c9/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[13]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>46.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">92.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/6723162f-bdf0-4524-9ca1-6063c051f2f9/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/6723162f-bdf0-4524-9ca1-6063c051f2f9/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[14]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>5.6000000000000005</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">11.200000000000001</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/50c0f935-61c3-4ff6-be14-6f6a4e8be539/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/50c0f935-61c3-4ff6-be14-6f6a4e8be539/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[15]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>2.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">4.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/99b38e8e-e8d7-457f-bd45-57e9e344363d/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/99b38e8e-e8d7-457f-bd45-57e9e344363d/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[16]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>0.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">0.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/b3c6e01b-df9e-4f7a-95ae-7b0402fc6fef/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/b3c6e01b-df9e-4f7a-95ae-7b0402fc6fef/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[17]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>1.2000000000000002</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">2.4000000000000004</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/fc7834a3-ee21-4723-9fc8-0c58f4514f34/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/fc7834a3-ee21-4723-9fc8-0c58f4514f34/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[18]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>104.4</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">208.8</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/e075a6a8-65a4-4b00-9131-4e96e18bed0f/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/e075a6a8-65a4-4b00-9131-4e96e18bed0f/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[19]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>80.4</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">160.8</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/1dfc1a83-3fac-49e4-9973-5511c80a0941/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/1dfc1a83-3fac-49e4-9973-5511c80a0941/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[20]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>52.400000000000006</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">104.80000000000001</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/bc718bc0-3272-4acf-a5ee-c83b21949af8/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/bc718bc0-3272-4acf-a5ee-c83b21949af8/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[21]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>2.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">4.0</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/5b8ea125-b0f6-4b34-9181-cab76a00fb19/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/5b8ea125-b0f6-4b34-9181-cab76a00fb19/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[22]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>2.8000000000000003</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">5.6000000000000005</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/blobResources/6723162f-bdf0-4524-9ca1-6063c051f2f9/download?access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="access_token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.name">access_token</stringProp>
+                <stringProp name="Argument.value">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/blobResources/6723162f-bdf0-4524-9ca1-6063c051f2f9/download</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[23]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>1560.8000000000002</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">3121.6000000000004</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjectModels" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjectModels</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[24]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>41.2</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">82.4</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjectModels/fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">[&quot;a1a47a94-854c-4e52-a32f-16e9d0b57fcb&quot;,&quot;6c8499cb-a9ec-b7c8-2755-6679358b0066&quot;,&quot;26989eef-d32c-493c-a333-6310300476f6&quot;,&quot;0b2c1ac6-ec52-4ce7-af32-2f49a6d41ccd&quot;,&quot;d6d3600c-e3d2-4527-929c-715869935398&quot;,&quot;00099b00-203f-4aab-b924-694edfa35ce3&quot;,&quot;015c4bb4-4146-460a-8413-24ad07c074ca&quot;,&quot;ba4e6ece-aa96-4d98-8e40-f7239122d885&quot;,&quot;24fb29b1-3958-4951-9aa6-e6d81a406ad2&quot;,&quot;729bf597-d3b5-4c0c-bb03-c3f5c1886d09&quot;,&quot;03270f10-e1fb-46f7-a342-bd0500c5fbd7&quot;,&quot;3365006d-22ff-4d22-a58b-ba0b4584203b&quot;,&quot;cb07e72a-fedc-41be-838b-57f0139b8b0b&quot;,&quot;33b220fa-450b-4c97-b714-55a429921468&quot;,&quot;dbfff6bf-069d-4035-89bc-787f3a2e3b63&quot;,&quot;e80c064a-1a1b-4345-9e57-683c54439a8f&quot;,&quot;ca1047f2-c1a9-4229-a2c3-8a29dbaf8fd9&quot;,&quot;fd96a958-56b7-4c37-a4d1-81ab1d953abe&quot;]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjectModels/fetch</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[25]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>394.8</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">789.6</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="https://v3.powerve.cloud/api/measurementProjects" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;e8c1f203-5b95-2405-6544-4050901c5641&quot;,&quot;projectStatus&quot;:&quot;NEW&quot;,&quot;creationDateTime&quot;:&quot;2025-05-19T12:45:21.287Z&quot;,&quot;trainIdentifier&quot;:&quot;IT19052025&quot;,&quot;trainCategory&quot;:&quot;Locomotiva&quot;,&quot;location&quot;:&quot;Officina di Napoli&quot;,&quot;operatorName&quot;:&quot;Michele Basile&quot;,&quot;wheelBase&quot;:1900,&quot;bogieCenterDistance&quot;:9000,&quot;trainpadOrientation&quot;:&quot;DEFAULT&quot;,&quot;measurementProjectModelId&quot;:&quot;6c8499cb-a9ec-b7c8-2755-6679358b0066&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.domain">v3.powerve.cloud</stringProp>
+          <intProp name="HTTPSampler.port">0</intProp>
+          <stringProp name="HTTPSampler.path">api/measurementProjects</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPSampler.header_manager" elementType="HeaderManager" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="sec-ch-ua-platform" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Linux&quot;</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhNWQ2ZWYxMTY1OGRlMDhkYWZiZTQ1MmRmNDBjNzY5NjVkMGU5MGI2ODc0Mzk1MWQ1MTBiYmI5Y2YwMzNkZjg1YTk4OGY1NTAzY2ZjNmM2In0.eyJhdWQiOiIyIiwianRpIjoiYmE1ZDZlZjExNjU4ZGUwOGRhZmJlNDUyZGY0MGM3Njk2NWQwZTkwYjY4NzQzOTUxZDUxMGJiYjljZjAzM2RmODVhOTg4ZjU1MDNjZmM2YzYiLCJpYXQiOjE3NDc2NTg3MTQsIm5iZiI6MTc0NzY1ODcxNCwiZXhwIjoxNzc5MTk0NzE0LCJzdWIiOiIzMiIsInNjb3BlcyI6WyIqIl19.d3Vxz9bTUdCq5oqoIvuBnCQCkGqR7ZlBNsTTpcxMopXbaGP2QuMN-jjvcTddipusIZjoNVF8oDcwSEQGIJVP0STATeyMpTY9IOQ5ZYo-26fOnQ5U6x4AvHJRWaeuNZGlxxPVolahhgvjCDNc4Fg44M-V8UJ6zapErgdDtpH41wkzhR9KdYA8SysjKjckDWETeTUxnz-FVmh8e9pOoEKNZCIvfz4FzgplSDO3SuueKrYPU1vOZIKzlbEO4LKwE6FZASrNY17CYBxt05n9ybZgsbkiUoDJTwgfcvDVjYTa4pbJsl6H3YEmLlUMNCX2YYfri_kR5tDPlqHahGhsiX569sBZ7FdDjkZ1shOthQF2XVmU1x2ptfitk1emB2GLyJXOv0kFOpZ3aH72W9px4f7g2mv7A07B-tVe00a7ypSpCD3VfLqsVQbw6iytaKTo1bDHk35Mk_5ETcj5LI0XlBY8WTy9nQp4VYNscOJOT1YnOuLx0FbNx4l2xaV13AvNsppxyP3sXd1WgCPs5f9Bq2_Qr97os3gvyVdbStVMg1dM8FLXKbDBClmiJxChObwZMvMkszm9AnOSi4GH_-1UhzbsvN89Z_Zrb0W2Wm88t63aWSCuiPKc_m_bRF_PaUm1mSifFWWzlKjr_HBya4-P7u0DqF00Jv5JZAeHvrEKEPfKhvk</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://v3.powerve.cloud/ng/it/measurements/add</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot;Chromium&quot;;v=&quot;130&quot;, &quot;Google Chrome&quot;;v=&quot;130&quot;, &quot;Not?A_Brand&quot;;v=&quot;99&quot;</stringProp>
+              </elementProp>
+              <elementProp name="sec-ch-ua-mobile" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+            <collectionProp reference="../../../HTTPSamplerProxy[26]/elementProp[2]/collectionProp"/>
+          </HeaderManager>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+            <doubleProp>
+              <name>RandomTimer.range</name>
+              <value>6.4</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <stringProp name="ConstantTimer.delay">12.8</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

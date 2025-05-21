@@ -41,11 +41,16 @@ public class PanelMessageInfoService {
         CheckableItem checkableItem = frame.getCheckItemListsRequest().get(frame.getCurrent_request()).get(type).get(row);
         if(!type.equals("cookie")) {
             if(!table.getValueAt(row,2).equals("-")) {
+                //case all the response is equals to another reponse
+                if(table.getValueAt(row,4).equals("All")){
+                    pm.getDescriptionTextArea().setText("The response of the request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" is equals to the response of response,\n which is the request n° " + table.getValueAt(row, 2));
 
-                pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
-                        "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
-                        "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" is equals to the parameter " + table.getValueAt(row, 4) +
-                        "of the " + table.getValueAt(row, 3) + " response,\n which is the request n° " + table.getValueAt(row, 2));
+                }else{
+                    pm.getDescriptionTextArea().setText("The parameter " + table.getValueAt(row, 1).toString() + " in  the " + type + " \n " +
+                            "of " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getRequest().getUrl() + " \n " +
+                            "request n° " + frame.getCorrelatorHelperApp().getDependencyGraph().nodes.get(frame.getCurrent_request()).getIndexs().toString()+" is equals to the parameter " + table.getValueAt(row, 4) +
+                            "of the " + table.getValueAt(row, 3) + " response,\n which is the request n° " + table.getValueAt(row, 2));
+                }
             }else {
 
                 if(table.getValueAt(row,3).equals("manually_inserted")){
