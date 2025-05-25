@@ -35,7 +35,7 @@
             <stringProp name="Cookie.domain"></stringProp>
             <stringProp name="Cookie.path"></stringProp>
             <boolProp name="Cookie.secure">false</boolProp>
-            <longProp name="Cookie.expires">1747402747535</longProp>
+            <longProp name="Cookie.expires">1747905312459</longProp>
             <boolProp name="Cookie.path_specified">true</boolProp>
             <boolProp name="Cookie.domain_specified">true</boolProp>
           </elementProp>
@@ -44,7 +44,7 @@
             <stringProp name="Cookie.domain"></stringProp>
             <stringProp name="Cookie.path"></stringProp>
             <boolProp name="Cookie.secure">false</boolProp>
-            <longProp name="Cookie.expires">1747402747536</longProp>
+            <longProp name="Cookie.expires">1747905312462</longProp>
             <boolProp name="Cookie.path_specified">true</boolProp>
             <boolProp name="Cookie.domain_specified">true</boolProp>
           </elementProp>
@@ -53,7 +53,7 @@
             <stringProp name="Cookie.domain"></stringProp>
             <stringProp name="Cookie.path"></stringProp>
             <boolProp name="Cookie.secure">false</boolProp>
-            <longProp name="Cookie.expires">1747402747536</longProp>
+            <longProp name="Cookie.expires">1747905312462</longProp>
             <boolProp name="Cookie.path_specified">true</boolProp>
             <boolProp name="Cookie.domain_specified">true</boolProp>
           </elementProp>

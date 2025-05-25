@@ -887,7 +887,7 @@ public class JMeterAdaption {
                             if(!edgeUrl.dependency.value.equals("manually_inserted") && !edgeUrl.dependency.value.equals("manually_csv"))
                                 subpaths[i] = "${" + edgeUrl.dependency.name+"_"+edgeUrl.from_index+"}";
                             else
-                                subpaths[i] = "${" + edgeUrl.dependency.name+"}";
+                                subpaths[i] = edgeUrl.dependency.name;
 
                             break;
                         }
@@ -985,7 +985,7 @@ public class JMeterAdaption {
                             value = "Bearer ${" + edgeHeader.dependency.name + "_" + edgeHeader.from_index + "}";
                     }
                     else
-                        value = "${"+edgeHeader.dependency.name+"}";
+                        value = edgeHeader.dependency.name;
 
                     break;
                 }
@@ -1039,7 +1039,7 @@ public class JMeterAdaption {
                                 if(!edgeQueryParam.dependency.value.equals("manually_inserted")&&!edgeQueryParam.dependency.value.equals("manually_csv"))
                                     value = "${"+edgeQueryParam.dependency.name+"_"+edgeQueryParam.from_index+"}";
                                 else
-                                    value = "${"+edgeQueryParam.dependency.name+"}";
+                                    value = edgeQueryParam.dependency.name;
                                 break;
                             }
                         }
